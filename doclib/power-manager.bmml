@@ -1,0 +1,172 @@
+<mockup version="1.0" skin="sketch" measuredW="1240" measuredH="617" mockupW="1180" mockupH="590">
+  <controls>
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::TitleWindow" x="60" y="27" w="654" h="590" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <close>true</close>
+        <maximizeRestore>true</maximizeRestore>
+        <minimize>true</minimize>
+        <text>Power%20Manager</text>
+      </controlProperties>
+    </control>
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::TabBar" x="82" y="156" w="294" h="242" measuredW="202" measuredH="100" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <selectedIndex>0</selectedIndex>
+        <tabHPosition>left</tabHPosition>
+        <tabVPosition>top</tabVPosition>
+        <text>Graph%2C%20Tableau</text>
+      </controlProperties>
+    </control>
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::FieldSet" x="82" y="412" w="608" h="170" measuredW="200" measuredH="170" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Statistiques</text>
+      </controlProperties>
+    </control>
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::Label" x="97" y="436" w="-1" h="-1" measuredW="203" measuredH="25" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Plus%20grosse%20consommation%20%28date%29</text>
+      </controlProperties>
+    </control>
+    <control controlID="35" controlTypeID="com.balsamiq.mockups::Label" x="97" y="461" w="-1" h="-1" measuredW="202" measuredH="25" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Plus%20petite%20consommation%20%28date%29</text>
+      </controlProperties>
+    </control>
+    <control controlID="36" controlTypeID="com.balsamiq.mockups::Label" x="97" y="486" w="202" h="23" measuredW="23" measuredH="25" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>...</text>
+      </controlProperties>
+    </control>
+    <control controlID="37" controlTypeID="com.balsamiq.mockups::ColumnChart" x="109" y="216" w="215" h="155" measuredW="187" measuredH="175" zOrder="6" locked="false" isInGroup="-1"/>
+    <control controlID="38" controlTypeID="com.balsamiq.mockups::Label" x="82" y="218" w="-1" h="-1" measuredW="25" measuredH="37" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>solde</text>
+        <textOrientation>up</textOrientation>
+      </controlProperties>
+    </control>
+    <control controlID="39" controlTypeID="com.balsamiq.mockups::Label" x="284" y="373" w="-1" h="-1" measuredW="34" measuredH="25" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>date</text>
+      </controlProperties>
+    </control>
+    <control controlID="40" controlTypeID="com.balsamiq.mockups::Title" x="81" y="57" w="538" h="-1" measuredW="477" measuredH="62" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Slode%3A%205000%20fcfa%20%28date%29</text>
+      </controlProperties>
+    </control>
+    <control controlID="41" controlTypeID="com.balsamiq.mockups::Label" x="205" y="193" w="-1" h="-1" measuredW="48" measuredH="29" zOrder="25" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <size>16</size>
+        <text>Solde</text>
+        <underline>true</underline>
+      </controlProperties>
+    </control>
+    <control controlID="46" controlTypeID="com.balsamiq.mockups::TitleWindow" x="892" y="76" w="348" h="194" measuredW="450" measuredH="400" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bottomheight>0</bottomheight>
+        <close>true</close>
+        <text>add%20statement</text>
+        <verticalScrollbar>false</verticalScrollbar>
+      </controlProperties>
+    </control>
+    <control controlID="47" controlTypeID="com.balsamiq.mockups::Label" x="917" y="108" w="-1" h="-1" measuredW="41" measuredH="29" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>16</size>
+        <text>date</text>
+      </controlProperties>
+    </control>
+    <control controlID="48" controlTypeID="com.balsamiq.mockups::Label" x="1055" y="107" w="-1" h="-1" measuredW="40" measuredH="29" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>16</size>
+        <text>type</text>
+      </controlProperties>
+    </control>
+    <control controlID="49" controlTypeID="com.balsamiq.mockups::Label" x="1144" y="107" w="-1" h="-1" measuredW="54" measuredH="29" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>16</size>
+        <text>Valeur</text>
+      </controlProperties>
+    </control>
+    <control controlID="50" controlTypeID="com.balsamiq.mockups::DateChooser" x="917" y="129" w="123" h="-1" measuredW="143" measuredH="29" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20%2025/03/11%20%20%20%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="51" controlTypeID="com.balsamiq.mockups::ComboBox" x="1055" y="132" w="-1" h="-1" measuredW="67" measuredH="25" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>closed</state>
+        <text>Solde%0ARreprise%0ACoupure%0AAjout</text>
+      </controlProperties>
+    </control>
+    <control controlID="52" controlTypeID="com.balsamiq.mockups::TextInput" x="1144" y="130" w="66" h="-1" measuredW="19" measuredH="29" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="53" controlTypeID="com.balsamiq.mockups::DateChooser" x="917" y="158" w="123" h="-1" measuredW="143" measuredH="29" zOrder="17" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20%2026/03/11%20%20%20%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="54" controlTypeID="com.balsamiq.mockups::ComboBox" x="1057" y="160" w="-1" h="-1" measuredW="85" measuredH="25" zOrder="18" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>closed</state>
+        <text>Rreprise%0ASolde%0ACoupure%0AAjout</text>
+      </controlProperties>
+    </control>
+    <control controlID="55" controlTypeID="com.balsamiq.mockups::TextInput" x="1146" y="158" w="66" h="-1" measuredW="19" measuredH="29" zOrder="19" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="56" controlTypeID="com.balsamiq.mockups::DateChooser" x="917" y="195" w="123" h="-1" measuredW="143" measuredH="29" zOrder="20" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20%2027/03/11%20%20%20%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="57" controlTypeID="com.balsamiq.mockups::ComboBox" x="1062" y="196" w="-1" h="-1" measuredW="67" measuredH="25" zOrder="21" locked="false" isInGroup="-1">
+      <controlProperties>
+        <state>closed</state>
+        <text>Solde%0ARreprise%0ACoupure%0AAjout</text>
+      </controlProperties>
+    </control>
+    <control controlID="58" controlTypeID="com.balsamiq.mockups::TextInput" x="1151" y="194" w="66" h="-1" measuredW="19" measuredH="29" zOrder="22" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="59" controlTypeID="com.balsamiq.mockups::Button" x="1153" y="234" w="-1" h="-1" measuredW="43" measuredH="28" zOrder="23" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>OK</text>
+      </controlProperties>
+    </control>
+    <control controlID="60" controlTypeID="com.balsamiq.mockups::Button" x="1076" y="234" w="-1" h="-1" measuredW="72" measuredH="28" zOrder="24" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Annuler</text>
+      </controlProperties>
+    </control>
+    <control controlID="62" controlTypeID="com.balsamiq.mockups::TabBar" x="396" y="155" w="294" h="243" measuredW="204" measuredH="100" zOrder="26" locked="false" isInGroup="-1">
+      <controlProperties>
+        <selectedIndex>1</selectedIndex>
+        <text>Graph%2C%20Tableau</text>
+      </controlProperties>
+    </control>
+    <control controlID="67" controlTypeID="com.balsamiq.mockups::DataGrid" x="418" y="241" w="250" h="132" measuredW="176" measuredH="118" zOrder="27" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Date%2C%20Consommation%0A21/03/11%2C%201234%0A22/03/11%2C%201200%0A23/0311%2C%20950</text>
+      </controlProperties>
+    </control>
+    <control controlID="68" controlTypeID="com.balsamiq.mockups::Label" x="488" y="194" w="-1" h="-1" measuredW="108" measuredH="29" zOrder="28" locked="false" isInGroup="-1">
+      <controlProperties>
+        <size>16</size>
+        <text>Consommation</text>
+        <underline>true</underline>
+      </controlProperties>
+    </control>
+    <control controlID="72" controlTypeID="com.balsamiq.mockups::ComboBox" x="96" y="119" w="-1" h="-1" measuredW="83" measuredH="25" zOrder="29" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Semaine</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
