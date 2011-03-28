@@ -6,6 +6,7 @@ import sys
 from PyQt4 import QtGui, QtCore
 from gettext import gettext as _
 
+
 class MenuBar(QtGui.QMenuBar):
 
     def __init__(self, parent=None, *args, **kwargs):
@@ -58,6 +59,7 @@ class MenuBar(QtGui.QMenuBar):
     def goto_add_statement(self):
         print 'add statement'
     #Delete an operation.
+
     def goto_delete_statement(self):
         print u'delete'
 
