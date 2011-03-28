@@ -108,13 +108,13 @@
         <text>%20%2026/03/11%20%20%20%20</text>
       </controlProperties>
     </control>
-    <control controlID="54" controlTypeID="com.balsamiq.mockups::ComboBox" x="1057" y="160" w="-1" h="-1" measuredW="85" measuredH="25" zOrder="18" locked="false" isInGroup="-1">
+    <control controlID="54" controlTypeID="com.balsamiq.mockups::ComboBox" x="1055" y="160" w="-1" h="-1" measuredW="85" measuredH="25" zOrder="18" locked="false" isInGroup="-1">
       <controlProperties>
         <state>closed</state>
         <text>Rreprise%0ASolde%0ACoupure%0AAjout</text>
       </controlProperties>
     </control>
-    <control controlID="55" controlTypeID="com.balsamiq.mockups::TextInput" x="1146" y="158" w="66" h="-1" measuredW="19" measuredH="29" zOrder="19" locked="false" isInGroup="-1">
+    <control controlID="55" controlTypeID="com.balsamiq.mockups::TextInput" x="1144" y="158" w="66" h="-1" measuredW="19" measuredH="29" zOrder="19" locked="false" isInGroup="-1">
       <controlProperties>
         <text>%20</text>
       </controlProperties>
@@ -124,28 +124,28 @@
         <text>%20%2027/03/11%20%20%20%20</text>
       </controlProperties>
     </control>
-    <control controlID="57" controlTypeID="com.balsamiq.mockups::ComboBox" x="1062" y="196" w="-1" h="-1" measuredW="67" measuredH="25" zOrder="21" locked="false" isInGroup="-1">
+    <control controlID="57" controlTypeID="com.balsamiq.mockups::ComboBox" x="1055" y="195" w="-1" h="-1" measuredW="67" measuredH="25" zOrder="21" locked="false" isInGroup="-1">
       <controlProperties>
         <state>closed</state>
         <text>Solde%0ARreprise%0ACoupure%0AAjout</text>
       </controlProperties>
     </control>
-    <control controlID="58" controlTypeID="com.balsamiq.mockups::TextInput" x="1151" y="194" w="66" h="-1" measuredW="19" measuredH="29" zOrder="22" locked="false" isInGroup="-1">
+    <control controlID="58" controlTypeID="com.balsamiq.mockups::TextInput" x="1144" y="193" w="66" h="-1" measuredW="19" measuredH="29" zOrder="22" locked="false" isInGroup="-1">
       <controlProperties>
         <text>%20</text>
       </controlProperties>
     </control>
-    <control controlID="59" controlTypeID="com.balsamiq.mockups::Button" x="1153" y="234" w="-1" h="-1" measuredW="43" measuredH="28" zOrder="23" locked="false" isInGroup="-1">
+    <control controlID="59" controlTypeID="com.balsamiq.mockups::Button" x="1144" y="234" w="-1" h="-1" measuredW="43" measuredH="28" zOrder="23" locked="false" isInGroup="-1">
       <controlProperties>
         <text>OK</text>
       </controlProperties>
     </control>
-    <control controlID="60" controlTypeID="com.balsamiq.mockups::Button" x="1076" y="234" w="-1" h="-1" measuredW="72" measuredH="28" zOrder="24" locked="false" isInGroup="-1">
+    <control controlID="60" controlTypeID="com.balsamiq.mockups::Button" x="1055" y="234" w="-1" h="-1" measuredW="72" measuredH="28" zOrder="24" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Annuler</text>
       </controlProperties>
     </control>
-    <control controlID="62" controlTypeID="com.balsamiq.mockups::TabBar" x="396" y="155" w="294" h="243" measuredW="204" measuredH="100" zOrder="26" locked="false" isInGroup="-1">
+    <control controlID="62" controlTypeID="com.balsamiq.mockups::TabBar" x="396" y="155" w="294" h="243" measuredW="202" measuredH="100" zOrder="26" locked="false" isInGroup="-1">
       <controlProperties>
         <selectedIndex>1</selectedIndex>
         <text>Graph%2C%20Tableau</text>
