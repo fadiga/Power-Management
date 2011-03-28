@@ -5,6 +5,7 @@
 
 import sys
 from PyQt4 import QtCore, QtGui
+from menubar import MenuBar
 
 
 class MainWindows(QtGui.QMainWindow):
@@ -14,4 +15,5 @@ class MainWindows(QtGui.QMainWindow):
         self.setGeometry(0, 30, 1200, 680)
         self.setWindowTitle('Prower Management')
         self.setWindowIcon(QtGui.QIcon('icons/fad.png'))
-
+        self.menubar = MenuBar(self)
+        self.setMenuBar(self.menubar)
