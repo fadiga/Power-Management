@@ -9,6 +9,7 @@ from menubar import MenuBar
 
 
 class MainWindows(QtGui.QMainWindow):
+
     def __init__(self):
         QtGui.QMainWindow.__init__(self)
 

@@ -2,8 +2,9 @@
 #encoding = utf-8
 #maintainer : Fad
 
-from database import *
 from datetime import datetime
+
+from database import *
 
 
 date_ = datetime(2011, 02, 03)
