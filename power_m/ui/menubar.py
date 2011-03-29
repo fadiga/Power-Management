@@ -2,12 +2,12 @@
 # -*- coding: utf-8 -*-
 # maintainer: alou
 
-import sys
 from PyQt4 import QtGui, QtCore
 from gettext import gettext as _
+from dashbord import DashbordViewWidget
+from common import PowerWidget
 
-
-class MenuBar(QtGui.QMenuBar):
+class MenuBar(QtGui.QMenuBar, PowerWidget):
 
     def __init__(self, parent=None, *args, **kwargs):
         QtGui.QMenuBar.__init__(self, parent, *args, **kwargs)
@@ -69,7 +69,7 @@ class MenuBar(QtGui.QMenuBar):
 
     # dashbord
     def goto_dashbord(self):
-        print u'dashbord'
+        self.change_main_context(DashbordViewWidget)
 
     #About
     def goto_about(self):
