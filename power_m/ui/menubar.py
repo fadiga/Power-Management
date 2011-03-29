@@ -4,8 +4,10 @@
 
 from PyQt4 import QtGui, QtCore
 from gettext import gettext as _
+
 from dashbord import DashbordViewWidget
 from common import PowerWidget
+from statementview import AddstatementViewWidget
 
 class MenuBar(QtGui.QMenuBar, PowerWidget):
 
@@ -58,10 +60,11 @@ class MenuBar(QtGui.QMenuBar, PowerWidget):
 
     def goto_add_statement(self):
         print 'add statement'
+        self.change_main_context(AddstatementViewWidget)
     #Delete an operation.
-
     def goto_delete_statement(self):
         print u'delete'
+
 
     #Export the database.
     def goto_export_db(self):
