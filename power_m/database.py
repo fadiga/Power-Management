@@ -41,7 +41,7 @@ class Operation(object):
 
     def __unicode__(self):
         return _(u"%(date_op)s %(type)s: %(valeur)s") \
-               % {'date_op': self.date_op.strftime('%F'), \
+               % {'date_op': self.date_op.strftime(u'%d-%m-%Y %Hh:%Mmn'), \
                   'type': self.type, \
                   'valeur': self.valeur}
 

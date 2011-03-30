@@ -32,5 +32,5 @@ class DashbordTableWidget(PowerTableWidget):
         self.refresh(True)
 
     def set_data_for(self):
-        self.data = [(op.date_op.strftime(u'%d-%m-%Y'), op.type, op.valeur)
+        self.data = [(op.date_op.strftime(u'%d-%m-%Y %Hh:%Mmn'), op.type, op.valeur)
             for op in session.query(Operation).all()]

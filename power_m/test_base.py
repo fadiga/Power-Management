@@ -7,10 +7,10 @@ from datetime import datetime
 from database import *
 
 
-date_ = datetime(2011, 02, 03)
+date_ = datetime(2011, 02, 03, 10, 30)
 
-
-op = Operation(date_,'jr',1200)
+print date_.strftime(u'%d-%m-%Y %Hh:%Mmn'), "fesdhfjedfdfjdfjzf"
+op = Operation(date_, 'Solde',12000)
 
 try:
     session.add(op)

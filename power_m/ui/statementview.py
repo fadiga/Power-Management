@@ -20,7 +20,9 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
 
         formbox = QtGui.QFormLayout()
         self.date_ = QtGui.QDateTimeEdit(QtCore.QDate.currentDate())
-        self.date_.setDisplayFormat("yyyy-MM-dd")
+        self.date_.setDisplayFormat("yyyy-MM-dd ")
+        self.time = QtGui.QDateTimeEdit(QtCore.QTime.currentTime())
+        self.time.setDisplayFormat("hh:mm")
         self.type_ = QtGui.QLineEdit()
         self.value_ = QtGui.QLineEdit()
         self.value_.setValidator(QtGui.QIntValidator())
@@ -28,6 +30,7 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
         #~ self.label.move(130, 100)
         titelebox = QtGui.QHBoxLayout()
         titelebox.addWidget(QtGui.QLabel((u'Date')))
+        titelebox.addWidget(QtGui.QLabel((u'time')))
         titelebox.addWidget(QtGui.QLabel((u'Type')))
         titelebox.addWidget(QtGui.QLabel((u'Value')))
 
@@ -36,13 +39,13 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
         self.box_type = QtGui.QComboBox()
         for index in liste_type:
             self.box_type.addItem((u'%(type)s') % {'type': index})
-        
+
         editbox = QtGui.QHBoxLayout()
         editbox.addWidget(self.date_)
+        editbox.addWidget(self.time)
         editbox.addWidget(self.box_type)
         editbox.addWidget(self.value_)
 
-                        
         button_hbox = QtGui.QHBoxLayout()
         butt = QtGui.QPushButton((u"Add"))
         butt.clicked.connect(self.add_statement)
@@ -66,11 +69,16 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
     def add_statement(self):
         ''' add statement '''
         year, month, day = self.date_.text().split('-')
-        date_ = datetime(int(year), int(month), int(day))
+        hour, minute = self.time.text().split(':')
+        datetime_ = datetime(int(year), int(month),\
+                                int(day), int(hour),\
+                                        int(minute))
+        if self.date_ and self.time and self.type_ and self.value_:
 
-        if self.date_ and self.type_ and self.value_:
-            dic = {0:"S",1:"A",2:"C",3:"R"}
-            operation = Operation(date_, unicode(dic[self.box_type.currentIndex()]),\
+            dic = {0:"Solde", 1:"Ajout", 2:"Coupure", 3:"Reprise"}
+            operation = Operation(datetime_, \
+                            unicode(dic[self.box_type.currentIndex()]),\
                             unicode(self.value_.text()))
+            print datetime_.strftime(u'%d-%m-%Y %Hh:%Mmn'), "zzzzzzzzzzzzzzzzz"
             session.add(operation)
             session.commit()
