@@ -30,3 +30,8 @@ class MainWindows(QtGui.QMainWindow):
 
         # attach context to window
         self.setCentralWidget(self.view_widget)
+
+    def open_dialog(self, dialog, modal=False, *args, **kwargs):
+        d = dialog(parent=self, *args, **kwargs)
+        d.setModal(modal)
+        d.exec_()

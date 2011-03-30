@@ -46,5 +46,3 @@ class Operation(object):
                   'valeur': self.valeur}
 
 mapper(Operation, operations_table)
-
-

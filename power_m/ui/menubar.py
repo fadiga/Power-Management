@@ -60,8 +60,7 @@ class MenuBar(QtGui.QMenuBar, PowerWidget):
         print u'print'
 
     def goto_add_statement(self):
-        print 'add statement'
-        self.change_main_context(AddstatementViewWidget)
+        self.open_dialog(AddstatementViewWidget, modal=True)
 
     #Delete an operation.
     def goto_delete_statement(self):

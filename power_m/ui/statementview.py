@@ -14,8 +14,7 @@ from common import PowerWidget, PowerPageTitle
 class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
 
     def __init__(self, parent=0, *args, **kwargs):
-        super(AddstatementViewWidget, self).__init__(parent=parent, *args,\
-                                                                **kwargs)
+        QtGui.QDialog.__init__(self, parent, *args, **kwargs)
         self.title = PowerPageTitle(u"statement")
 
         formbox = QtGui.QFormLayout()
