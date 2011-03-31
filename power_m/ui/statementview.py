@@ -6,8 +6,9 @@
 from datetime import datetime
 
 from PyQt4 import QtGui, QtCore
-from database import *
 
+from database import *
+from dashbord import DashbordViewWidget
 from common import PowerWidget, PowerPageTitle
 
 
@@ -78,6 +79,7 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
             operation = Operation(datetime_, \
                             unicode(dic[self.box_type.currentIndex()]),\
                             unicode(self.value_.text()))
-            print datetime_.strftime(u'%d-%m-%Y %Hh:%Mmn'), "zzzzzzzzzzzzzzzzz"
             session.add(operation)
             session.commit()
+            self.value_.clear()
+            self.change_main_context(DashbordViewWidget)
