@@ -8,6 +8,7 @@ from PyQt4 import QtCore, QtGui
 from menubar import MenuBar
 from dashbord import DashbordViewWidget
 
+
 class MainWindows(QtGui.QMainWindow):
 
     def __init__(self):
@@ -19,7 +20,7 @@ class MainWindows(QtGui.QMainWindow):
         self.menubar = MenuBar(self)
         self.setMenuBar(self.menubar)
         self.change_context(DashbordViewWidget)
-        
+
     def change_context(self, context_widget, *args, **kwargs):
 
         # instanciate context
