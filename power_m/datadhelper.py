@@ -10,5 +10,5 @@ from sqlalchemy import desc, func
 def consomation(operations):
     ''' total amount expendited during that period '''
     operation_balances = session.query(Operation.valeur)
-               .filter(Operation.type=='Solde').all()
+                                .filter(Operation.type=='Solde').all()
 
