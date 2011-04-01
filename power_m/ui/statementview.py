@@ -75,7 +75,7 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
                                         int(minute))
         if self.date_ and self.time and self.type_ and self.value_:
 
-            dic = {0:"Solde", 1:"Ajout", 2:"Coupure", 3:"Reprise"}
+            dic = {0: "Solde", 1: "Ajout", 2: "Coupure", 3: "Reprise"}
             operation = Operation(datetime_, \
                             unicode(dic[self.box_type.currentIndex()]),\
                             unicode(self.value_.text()))
