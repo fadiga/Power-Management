@@ -21,7 +21,7 @@ metadata = MetaData()
 
 operations_table = Table('operation', metadata,
     Column('id', Integer, primary_key=True),
-    Column('date_op', Date),
+    Column('date_op', DateTime),
     Column('type', String(20)),
     Column('valeur', Integer),
 )
@@ -40,9 +40,9 @@ class Operation(object):
         return _("<Operation('%(valeur)s')>") % {'valeur': str(self.valeur)}
 
     def __unicode__(self):
-        return _(u"%(date_op)s %(type)s: %(valeur)s") \
-               % {'date_op': self.date_op.strftime(u'%d-%m-%Y %Hh:%Mmn'), \
-                  'type': self.type, \
+        return _(u"%(date_op)s %(type)s: %(valeur)s")\
+               % {'date_op': self.date_op.strftime(u'%d-%m-%Y %Hh:%Mmn'),\
+                  'type': self.type,\
                   'valeur': self.valeur}
 
 mapper(Operation, operations_table)
