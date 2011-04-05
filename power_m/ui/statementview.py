@@ -8,7 +8,7 @@ from datetime import datetime
 from PyQt4 import QtGui, QtCore
 
 from database import *
-from dashbord import DashbordViewWidget
+from dashboard import DashbordViewWidget
 from common import PowerWidget, PowerPageTitle
 
 

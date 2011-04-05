@@ -5,7 +5,7 @@
 from PyQt4 import QtGui, QtCore
 from gettext import gettext as _
 
-from dashbord import DashbordViewWidget
+from dashboard import DashbordViewWidget
 from common import PowerWidget
 from statementview import AddstatementViewWidget
 

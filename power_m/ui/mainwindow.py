@@ -6,7 +6,7 @@
 import sys
 from PyQt4 import QtCore, QtGui
 from menubar import MenuBar
-from dashbord import DashbordViewWidget
+from dashboard import DashbordViewWidget
 
 
 class MainWindows(QtGui.QMainWindow):

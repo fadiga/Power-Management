@@ -180,3 +180,11 @@ class PowerTableWidget(QtGui.QTableWidget, PowerWidget):
 
     def click_item(self, row, column, *args):
         pass
+
+
+class TabPane(QtGui.QScrollArea):
+    def __init__(self, parent=None):
+        super(TabPane, self).__init__(parent)
+
+    def addBox(self, box):
+        self.setLayout(box)
