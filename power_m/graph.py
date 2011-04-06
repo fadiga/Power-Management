@@ -21,6 +21,7 @@ def graphic(titleg, datay, labely, datax, labelx):
     formatter = FuncFormatter(ff)
     ax = subplot(211)
     ax.yaxis.set_major_formatter(formatter)
+    print ax
     title(titleg)
     xlabel(labelx)
     ylabel(labely)
@@ -29,8 +30,7 @@ def graphic(titleg, datay, labely, datax, labelx):
     xticks(x + 0.5,  datax )
     labels = ax.get_xticklabels()
     setp(labels, rotation=30, fontsize=10)
-    show()
-
+    savefig('test.png')
 
 def ff(x, pos):
     'The two args are the value and tick position'
@@ -40,6 +40,6 @@ def ff(x, pos):
 x = [(op.date_op.strftime(u'%d-%m %Hh:%Mmn'))
             for op in session.query(Operation).all()]        
 y = [(op.valeur)
-            for op in session.query(Operation).all()]
+            for op in session.query(Operation).filter(Operation.type=='Solde').all()]
                 
 graphic('Representation graphique du solde par jour', y, 'Solde (s)', x, 'time (s)')
