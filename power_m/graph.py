@@ -21,16 +21,18 @@ def graphic(titleg, datay, labely, datax, labelx):
     formatter = FuncFormatter(ff)
     ax = subplot(211)
     ax.yaxis.set_major_formatter(formatter)
-    print ax
     title(titleg)
     xlabel(labelx)
     ylabel(labely)
     grid(True)
     bar(x, datay)
+    #~ arrow(1, 2, 3, 5)
+
     xticks(x + 0.5,  datax )
     labels = ax.get_xticklabels()
-    setp(labels, rotation=30, fontsize=10)
-    savefig('test.png')
+    setp(labels, rotation=30, fontsize=12)
+    savefig('graph.png')
+ 
 
 def ff(x, pos):
     'The two args are the value and tick position'

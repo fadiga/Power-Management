@@ -28,6 +28,12 @@ class DashbordViewWidget(PowerWidget):
         self.title_alert = PowerPageTitle(u"Alert")
         self.table_balance = BalanceTableWidget(parent=self)
         self.table_consumption = ConsumptionTableWidget(parent=self)
+        
+        pixmap = QtGui.QPixmap("graph.png")
+        label = QtGui.QLabel()
+        label.setPixmap(pixmap)
+
+        hbox1.addWidget(label)
 
         hbox_alert.addWidget(self.title_alert)
         vbox.addWidget(self.title)
