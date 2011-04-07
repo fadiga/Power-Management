@@ -6,7 +6,7 @@ from PyQt4 import QtGui
 from sqlalchemy import desc
 from gettext import gettext as _
 from database import Operation, session
-from datahelper import tabbox
+from datahelper import tabbox, graph_for_type
 from common import PowerWidget, PowerPageTitle, PowerTableWidget
 
 
@@ -18,7 +18,8 @@ class DashbordViewWidget(PowerWidget):
 
         vbox = QtGui.QVBoxLayout()
         hbox = QtGui.QHBoxLayout()
-        hbox1 = QtGui.QHBoxLayout()
+        box_left = QtGui.QHBoxLayout()
+        box_rigth = QtGui.QHBoxLayout()
         hbox_alert = QtGui.QHBoxLayout()
 
         tablebox_balance = QtGui.QHBoxLayout()
@@ -28,19 +29,19 @@ class DashbordViewWidget(PowerWidget):
         self.title_alert = PowerPageTitle(u"Alert")
         self.table_balance = BalanceTableWidget(parent=self)
         self.table_consumption = ConsumptionTableWidget(parent=self)
-        
+
         pixmap = QtGui.QPixmap("graph.png")
         label = QtGui.QLabel()
         label.setPixmap(pixmap)
-
-        hbox1.addWidget(label)
+        graph_for_type('Representation graphique du solde par jour', 'Solde')
+        box_left.addWidget(label)
 
         hbox_alert.addWidget(self.title_alert)
         vbox.addWidget(self.title)
         tablebox_balance.addWidget(self.table_balance)
         tablebox_consumption.addWidget(self.table_consumption)
-        tab_widget1 = tabbox(hbox1, tablebox_balance)
-        tab_widget2 = tabbox(hbox1, tablebox_consumption)
+        tab_widget1 = tabbox(box_left, tablebox_balance)
+        tab_widget2 = tabbox(box_rigth, tablebox_consumption)
 
         hbox.addWidget(tab_widget1)
         hbox.addWidget(tab_widget2)

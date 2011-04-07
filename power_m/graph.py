@@ -1,16 +1,13 @@
 #!/usr/bin/env python
-# encoding = utf-8
+# -*- coding: utf-8 -*-
 # maintainer : Fad
 
 from matplotlib.ticker import FuncFormatter
 from pylab import *
 
-from database import *
-
-
 def graphic(titleg, datay, labely, datax, labelx):
-    ''' is the graph 
-       param : 
+    ''' is the graph
+       param :
             titleg = the title (string)
             datay = data y (liste)
             labely = label y (string)
@@ -19,29 +16,21 @@ def graphic(titleg, datay, labely, datax, labelx):
     '''
     x = arange(len(datay))
     formatter = FuncFormatter(ff)
-    ax = subplot(211)
+    print "start  "
+    ax = subplot(111)
     ax.yaxis.set_major_formatter(formatter)
     title(titleg)
     xlabel(labelx)
     ylabel(labely)
     grid(True)
     bar(x, datay)
-    #~ arrow(1, 2, 3, 5)
-
     xticks(x + 0.5,  datax )
     labels = ax.get_xticklabels()
     setp(labels, rotation=30, fontsize=12)
-    savefig('graph.png')
- 
+    savefig('graph.png', dpi=50)
+
 
 def ff(x, pos):
     'The two args are the value and tick position'
     return '%s' % (x)
 
-
-x = [(op.date_op.strftime(u'%d-%m %Hh:%Mmn'))
-            for op in session.query(Operation).all()]        
-y = [(op.valeur)
-            for op in session.query(Operation).filter(Operation.type=='Solde').all()]
-                
-graphic('Representation graphique du solde par jour', y, 'Solde (s)', x, 'time (s)')

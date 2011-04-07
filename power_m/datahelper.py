@@ -6,6 +6,7 @@ from database import *
 from datetime import date, datetime
 from sqlalchemy import desc, func
 from ui.common import TabPane
+from graph import graphic
 
 
 def tabbox(box1, Box2):
@@ -19,3 +20,12 @@ def tabbox(box1, Box2):
                 pane.addBox(Box2)
             tab_widget.addTab(pane, heading)
     return tab_widget
+
+
+def graph_for_type(title, type):
+    x = [(op.date_op.strftime(u'%d-%m %Hh:%Mmn'))
+            for op in session.query(Operation).filter(Operation.type==type).all()]
+    y = [(op.valeur)
+                for op in session.query(Operation).filter(Operation.type==type).all()]
+    print x
+    graphic(title, y, '%s (s)' % type, x, 'time (s)')
