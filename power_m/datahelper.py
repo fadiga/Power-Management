@@ -33,12 +33,21 @@ def last_balance():
 
 
 def consumption():
-    pass
-    
+    """ Calculation of consumption per day."""
+    dic = []
+    data_balance = [(op.balance, op.date_op.strftime(u'%d-%m-%Y %Hh:%Mmn'))\
+                            for op in session.query(Operation)\
+                            
+                            .order_by(Operation.date_op)]
+
+    for i in range(len(data_balance) - 1):
+        dic.append((data_balance[i][1], abs(data_balance[i+1][0] - data_balance[i][0])))
+        print i, data_balance[i][1],abs(data_balance[i+1][0] - data_balance[i][0])
+    return dic
 
 
 def graph_for_type(title, type):
-    x = [(op.date_op.strftime(u'%d-%m %Hh:%Mmn'))
+    x = [(op.date_op.strftime(u'%d-%m-%Y %Hh:%Mmn'))
             for op in session.query(Operation).filter(Operation.type==type)\
                                             .order_by(Operation.date_op).all()]
     y = [(op.value)

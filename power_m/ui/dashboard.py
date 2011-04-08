@@ -6,7 +6,7 @@ from PyQt4 import QtGui
 from sqlalchemy import desc
 from gettext import gettext as _
 from database import Operation, session
-from datahelper import tabbox, graph_for_type
+from datahelper import tabbox, graph_for_type, consumption
 from common import PowerWidget, PowerPageTitle, PowerTableWidget
 
 
@@ -73,12 +73,11 @@ class ConsumptionTableWidget(PowerTableWidget):
     def __init__(self, parent, *args, **kwargs):
 
         PowerTableWidget.__init__(self, parent=parent, *args, **kwargs)
-        self.header = [_(u"Date"), _(u"Type"), _(u"value")]
+        self.header = [_(u"Date"), _(u"Consumption")]
         self.set_data_for()
         self.refresh(True)
 
     def set_data_for(self):
-        self.data = [(op.date_op.strftime(u'%d-%m-%Y %Hh:%Mmn'),\
-                                                op.type, op.value)
-            for op in session.query(Operation).filter(Operation\
-                                                      .type == 'Ajout').all()]
+
+        self.data = self.data = [(op[0], op[1])
+            for op in consumption()]
