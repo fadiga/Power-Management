@@ -27,7 +27,6 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
         self.value_ = QtGui.QLineEdit()
         self.value_.setValidator(QtGui.QIntValidator())
 
-        #~ self.label.move(130, 100)
         titelebox = QtGui.QHBoxLayout()
         titelebox.addWidget(QtGui.QLabel((u'Date')))
         titelebox.addWidget(QtGui.QLabel((u'time')))
