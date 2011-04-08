@@ -10,7 +10,7 @@ from PyQt4 import QtGui, QtCore
 from database import *
 from dashboard import DashbordViewWidget
 from common import PowerWidget, PowerPageTitle
-
+from datahelper import last_balance
 
 class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
 
@@ -76,9 +76,14 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
         if self.date_ and self.time and self.type_ and self.value_:
 
             dic = {0: "Solde", 1: "Ajout", 2: "Coupure", 3: "Reprise"}
+            if dic[self.box_type.currentIndex()] == "Ajout":
+                balance = int(last_balance()) + int(self.value_.text())
+            else :
+                balance = unicode(self.value_.text())
+
             operation = Operation(datetime_, \
                             unicode(dic[self.box_type.currentIndex()]),\
-                            unicode(self.value_.text()))
+                            unicode(self.value_.text()), balance)
             session.add(operation)
             session.commit()
             self.value_.clear()

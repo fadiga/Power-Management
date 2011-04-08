@@ -13,7 +13,7 @@ from sqlalchemy import Table, Column, Integer, String, \
 
 DB_FILE = 'power.db'
 
-engine = create_engine('sqlite:///%s' % DB_FILE, echo=True)
+engine = create_engine('sqlite:///%s' % DB_FILE, echo=False)
 Session = sessionmaker(bind=engine)
 session = Session()
 
@@ -23,7 +23,8 @@ operations_table = Table('operation', metadata,
     Column('id', Integer, primary_key=True),
     Column('date_op', DateTime),
     Column('type', String(20)),
-    Column('valeur', Integer),
+    Column('value', Integer),
+    Column('balance', Integer),
 )
 
 metadata.create_all(engine)
@@ -31,18 +32,19 @@ metadata.create_all(engine)
 
 class Operation(object):
 
-    def __init__(self, date_op, type, valeur=0):
+    def __init__(self, date_op, type, value=0, balance=0):
         self.date_op = date_op
         self.type = type
-        self.valeur = valeur
+        self.value = value
+        self.balance = balance
 
     def __repr__(self):
-        return _("<Operation('%(valeur)s')>") % {'valeur': str(self.valeur)}
+        return _("<Operation('%(value)s')>") % {'value': str(self.value)}
 
     def __unicode__(self):
-        return _(u"%(date_op)s %(type)s: %(valeur)s")\
+        return _(u"%(date_op)s %(type)s: %(value)s %(balance)s")\
                % {'date_op': self.date_op.strftime(u'%d-%m-%Y %Hh:%Mmn'),\
                   'type': self.type,\
-                  'valeur': self.valeur}
+                  'value': self.value, 'balance': self.balance}
 
 mapper(Operation, operations_table)

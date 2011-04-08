@@ -57,15 +57,14 @@ class BalanceTableWidget(PowerTableWidget):
 
         PowerTableWidget.__init__(self, parent=parent, *args, **kwargs)
         self.header = [_(u"Date"), _(u"Type"), \
-                        _(u"Value")]
+                        _(u"Value"), _(u"Balance")]
         self.set_data_for()
         self.refresh(True)
 
     def set_data_for(self):
         self.data = [(op.date_op.strftime(u'%d-%m-%Y %Hh:%Mmn'),\
-                      op.type, op.valeur)
+                      op.type, op.value, op.balance)
             for op in session.query(Operation)\
-                             .filter(Operation.type == 'Solde')
                              .order_by(desc(Operation.date_op)).all()]
 
 
@@ -74,12 +73,12 @@ class ConsumptionTableWidget(PowerTableWidget):
     def __init__(self, parent, *args, **kwargs):
 
         PowerTableWidget.__init__(self, parent=parent, *args, **kwargs)
-        self.header = [_(u"Date"), _(u"Type"), _(u"Valeur")]
+        self.header = [_(u"Date"), _(u"Type"), _(u"value")]
         self.set_data_for()
         self.refresh(True)
 
     def set_data_for(self):
         self.data = [(op.date_op.strftime(u'%d-%m-%Y %Hh:%Mmn'),\
-                                                op.type, op.valeur)
+                                                op.type, op.value)
             for op in session.query(Operation).filter(Operation\
                                                       .type == 'Ajout').all()]

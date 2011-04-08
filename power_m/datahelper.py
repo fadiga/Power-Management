@@ -22,10 +22,26 @@ def tabbox(box1, Box2):
     return tab_widget
 
 
+def last_balance():
+    """ last balance """
+    try:
+        last_balance = session.query(Operation).filter(Operation.type== "Solde")\
+                                            .order_by(Operation.date_op).first()
+        return last_balance.value
+    except:
+        return 0
+
+
+def consumption():
+    pass
+    
+
+
 def graph_for_type(title, type):
     x = [(op.date_op.strftime(u'%d-%m %Hh:%Mmn'))
-            for op in session.query(Operation).filter(Operation.type==type).all()]
-    y = [(op.valeur)
-                for op in session.query(Operation).filter(Operation.type==type).all()]
-    print x
-    graphic(title, y, '%s (s)' % type, x, 'time (s)')
+            for op in session.query(Operation).filter(Operation.type==type)\
+                                            .order_by(Operation.date_op).all()]
+    y = [(op.value)
+                for op in session.query(Operation).filter(Operation.type==type)\
+                                        .order_by(Operation.date_op).all()]
+    #~ graphic(title, y, '%s (s)' % type, x, 'time (s)')
