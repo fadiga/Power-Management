@@ -6,8 +6,8 @@ from PyQt4 import QtGui
 from sqlalchemy import desc
 from gettext import gettext as _
 from database import Operation, session
-from datahelper import tabbox, graph_for_type, consumption
-from common import PowerWidget, PowerPageTitle, PowerTableWidget
+from datahelper import tabbox, graph_for_type, consumption, max_consumption, duration
+from common import PowerWidget, PowerPageTitle, PowerTableWidget, PowerBoxTitle
 
 
 class DashbordViewWidget(PowerWidget):
@@ -20,13 +20,22 @@ class DashbordViewWidget(PowerWidget):
         hbox = QtGui.QHBoxLayout()
         box_left = QtGui.QHBoxLayout()
         box_rigth = QtGui.QHBoxLayout()
-        hbox_alert = QtGui.QHBoxLayout()
-
-        tablebox_balance = QtGui.QHBoxLayout()
-        tablebox_consumption = QtGui.QHBoxLayout()
+        hbox_alert = QtGui.QVBoxLayout()
+        
+        box = QtGui.QListWidget()
+        consuption = max_consumption()
+        duration_cut = duration()
+        box.addItem (u'The increased consumption is %s cfa (%s).' % (consuption[1], consuption[0]))
+        box.addItem (u'The biggest break is %s (%s).' % (duration_cut[0], duration_cut[1]))
+        
+        tablebox_balance = QtGui.QVBoxLayout()
+        tablebox_consumption = QtGui.QVBoxLayout()
 
         self.title = PowerPageTitle(u"Dashboard")
         self.title_alert = PowerPageTitle(u"Alert")
+        self.title_box_balance = PowerBoxTitle(u"Table balances")
+        self.title_box_consumption = PowerBoxTitle(u"Table consumptions")
+        
         self.table_balance = BalanceTableWidget(parent=self)
         self.table_consumption = ConsumptionTableWidget(parent=self)
 
@@ -37,8 +46,12 @@ class DashbordViewWidget(PowerWidget):
         box_left.addWidget(label)
 
         hbox_alert.addWidget(self.title_alert)
+        hbox_alert.addWidget(box)
+        
         vbox.addWidget(self.title)
+        tablebox_balance.addWidget(self.title_box_balance)
         tablebox_balance.addWidget(self.table_balance)
+        tablebox_consumption.addWidget(self.title_box_consumption)
         tablebox_consumption.addWidget(self.table_consumption)
         tab_widget1 = tabbox(box_left, tablebox_balance)
         tab_widget2 = tabbox(box_rigth, tablebox_consumption)
