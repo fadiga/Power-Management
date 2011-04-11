@@ -12,6 +12,7 @@ from dashboard import DashbordViewWidget
 from common import PowerWidget, PowerPageTitle
 from datahelper import last_balance
 
+
 class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
 
     def __init__(self, parent=0, *args, **kwargs):
@@ -27,8 +28,9 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
         titelebox.addWidget(QtGui.QLabel((u"Type")))
         titelebox.addWidget(QtGui.QLabel((u"Value")))
         vbox.addLayout(titelebox)
+
         self.list_data = []
-        for n in range(0,5):
+        for n in range(0, 5):
             self.date_ = QtGui.QDateTimeEdit(QtCore.QDate.currentDate())
             self.date_.setDisplayFormat("yyyy-MM-dd ")
             self.time = QtGui.QDateTimeEdit(QtCore.QTime.currentTime())
@@ -81,15 +83,25 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
             datetime_ = datetime(int(year), int(month),\
                                     int(day), int(hour),\
                                             int(minute))
+            flag = False
+            last_b = last_balance()
             if value_op:
+                flag = True
+            if type_op == "Reprise" or type_op == "Coupure":
+                flag = True
+            if flag:
                 if type_op == "Ajout":
-                    balance = int(last_balance())\
-                                    + int(value_op)
-                else :
+                    if last_b == None:
+                        balance = int(value_op)
+                    else:
+                        balance = int(last_b) + int(value_op)
+                if type_op == "Solde":
                     balance = unicode(value_op)
-                operation = Operation(datetime_,\
-                                unicode(type_op),\
-                                unicode(value_op), balance)
+                if type_op == "Reprise" or type_op == "Coupure":
+                    balance = unicode(last_b)
+
+                operation = Operation(datetime_, unicode(type_op),\
+                                        unicode(value_op), balance)
                 session.add(operation)
                 session.commit()
                 self.value_.clear()
