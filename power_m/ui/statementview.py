@@ -18,32 +18,40 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
         QtGui.QDialog.__init__(self, parent, *args, **kwargs)
         self.title = PowerPageTitle(u"statement")
 
-        formbox = QtGui.QFormLayout()
-        self.date_ = QtGui.QDateTimeEdit(QtCore.QDate.currentDate())
-        self.date_.setDisplayFormat("yyyy-MM-dd ")
-        self.time = QtGui.QDateTimeEdit(QtCore.QTime.currentTime())
-        self.time.setDisplayFormat("hh:mm")
-        self.type_ = QtGui.QLineEdit()
-        self.value_ = QtGui.QLineEdit()
-        self.value_.setValidator(QtGui.QIntValidator())
+        vbox = QtGui.QVBoxLayout()
+        vbox.addWidget(self.title)
 
         titelebox = QtGui.QHBoxLayout()
-        titelebox.addWidget(QtGui.QLabel((u'Date')))
-        titelebox.addWidget(QtGui.QLabel((u'time')))
-        titelebox.addWidget(QtGui.QLabel((u'Type')))
-        titelebox.addWidget(QtGui.QLabel((u'Value')))
+        titelebox.addWidget(QtGui.QLabel((u"Date")))
+        titelebox.addWidget(QtGui.QLabel((u"Time")))
+        titelebox.addWidget(QtGui.QLabel((u"Type")))
+        titelebox.addWidget(QtGui.QLabel((u"Value")))
+        vbox.addLayout(titelebox)
+        self.list_data = []
+        for n in range(0,5):
+            self.date_ = QtGui.QDateTimeEdit(QtCore.QDate.currentDate())
+            self.date_.setDisplayFormat("yyyy-MM-dd ")
+            self.time = QtGui.QDateTimeEdit(QtCore.QTime.currentTime())
+            self.time.setDisplayFormat("hh:mm")
+            self.type_ = QtGui.QLineEdit()
+            self.value_ = QtGui.QLineEdit()
+            self.value_.setValidator(QtGui.QIntValidator())
 
-        liste_type = ["Solde", "Ajout", "Coupure", "Reprise"]
-        #Combobox widget
-        self.box_type = QtGui.QComboBox()
-        for index in liste_type:
-            self.box_type.addItem((u'%(type)s') % {'type': index})
+            liste_type = ["Solde", "Ajout", "Coupure", "Reprise"]
+            #Combobox widget
+            self.box_type = QtGui.QComboBox()
+            for index in liste_type:
+                self.box_type.addItem((u'%(type)s') % {'type': index})
 
-        editbox = QtGui.QHBoxLayout()
-        editbox.addWidget(self.date_)
-        editbox.addWidget(self.time)
-        editbox.addWidget(self.box_type)
-        editbox.addWidget(self.value_)
+            self.list_data.append((self.date_, self.time,\
+                            self.box_type, self.value_))
+
+            editbox = QtGui.QHBoxLayout()
+            editbox.addWidget(self.date_)
+            editbox.addWidget(self.time)
+            editbox.addWidget(self.box_type)
+            editbox.addWidget(self.value_)
+            vbox.addLayout(editbox)
 
         button_hbox = QtGui.QHBoxLayout()
         butt = QtGui.QPushButton((u"Add"))
@@ -53,12 +61,6 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
         button_hbox.addWidget(butt)
         button_hbox.addWidget(cancel_but)
 
-        vbox = QtGui.QVBoxLayout()
-        vbox.addWidget(self.title)
-
-        vbox.addLayout(titelebox)
-        vbox.addLayout(formbox)
-        vbox.addLayout(editbox)
         vbox.addLayout(button_hbox)
         self.setLayout(vbox)
 
@@ -67,23 +69,28 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
 
     def add_statement(self):
         ''' add statement '''
-        year, month, day = self.date_.text().split('-')
-        hour, minute = self.time.text().split(':')
-        datetime_ = datetime(int(year), int(month),\
-                                int(day), int(hour),\
-                                        int(minute))
-        if self.date_ and self.time and self.type_ and self.value_:
-
+        for data in self.list_data:
             dic = {0: "Solde", 1: "Ajout", 2: "Coupure", 3: "Reprise"}
-            if dic[self.box_type.currentIndex()] == "Ajout":
-                balance = int(last_balance()) + int(self.value_.text())
-            else :
-                balance = unicode(self.value_.text())
+            date_op = data[0].text()
+            time_op = data[1].text()
+            type_op = dic[data[2].currentIndex()]
+            value_op = data[3].text()
 
-            operation = Operation(datetime_, \
-                            unicode(dic[self.box_type.currentIndex()]),\
-                            unicode(self.value_.text()), balance)
-            session.add(operation)
-            session.commit()
-            self.value_.clear()
-            self.change_main_context(DashbordViewWidget)
+            year, month, day = date_op.split('-')
+            hour, minute = time_op.split(':')
+            datetime_ = datetime(int(year), int(month),\
+                                    int(day), int(hour),\
+                                            int(minute))
+            if value_op:
+                if type_op == "Ajout":
+                    balance = int(last_balance())\
+                                    + int(value_op)
+                else :
+                    balance = unicode(value_op)
+                operation = Operation(datetime_,\
+                                unicode(type_op),\
+                                unicode(value_op), balance)
+                session.add(operation)
+                session.commit()
+                self.value_.clear()
+        self.change_main_context(DashbordViewWidget)

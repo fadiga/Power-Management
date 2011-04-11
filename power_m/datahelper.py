@@ -26,8 +26,9 @@ def last_balance():
     """ last balance """
     try:
         last_balance = session.query(Operation).\
-                    filter(Operation.type=="Solde")\
-                    .order_by(Operation.date_op).first()
+                    filter(Operation.balance).\
+                    order_by(Operation.date_op).first()
+        print last_balance,"last_balance"
         return last_balance.value
     except:
         return 0
@@ -35,23 +36,25 @@ def last_balance():
 
 def consumption():
     """ Calculation of consumption per day."""
-    dic = []
+    list_consump = []
     data_balance = [(op.balance,\
                     op.date_op.strftime(u'%d-%m-%Y %Hh:%Mmn'))\
                             for op in session.query(Operation).\
+                            filter(Operation.type=="Solde").\
+                            filter(Operation.type=="Ajout").\
                             order_by(Operation.date_op)]
 
     for i in range(len(data_balance) - 1):
-        dic.append((data_balance[i][1],\
+        list_consump.append((data_balance[i][1],\
                     abs(data_balance[i+1][0] - data_balance[i][0])))
-    return dic
+    return list_consump
 
 
 def graph_for_type(title, type):
     x = [(op.date_op.strftime(u'%d-%m-%Y %Hh:%Mmn'))
-        for op in session.query(Operation).filter(Operation.type==type)\
-                                    .order_by(Operation.date_op).all()]
+        for op in session.query(Operation).filter(Operation.type==type).\
+                                    order_by(Operation.date_op).all()]
     y = [(op.value)
-        for op in session.query(Operation).filter(Operation.type==type)\
-                                    .order_by(Operation.date_op).all()]
+        for op in session.query(Operation).filter(Operation.type==type).\
+                                    order_by(Operation.date_op).all()]
     #~ graphic(title, y, '%s (s)' % type, x, 'time (s)')
