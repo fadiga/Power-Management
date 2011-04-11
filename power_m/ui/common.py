@@ -12,7 +12,15 @@ class PowerPageTitle(QtGui.QLabel):
 
     def __init__(self, *args, **kwargs):
         super(PowerPageTitle, self).__init__(*args, **kwargs)
-        self.setFont(QtGui.QFont("Times New Roman", 18))
+        self.setFont(QtGui.QFont("Times New Roman", 20))
+        self.setAlignment(Qt.AlignCenter)
+        
+        
+class PowerBoxTitle(QtGui.QLabel):
+
+    def __init__(self, *args, **kwargs):
+        super(PowerBoxTitle, self).__init__(*args, **kwargs)
+        self.setFont(QtGui.QFont("Times New Roman", 14))
         self.setAlignment(Qt.AlignCenter)
 
 
