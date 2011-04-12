@@ -5,9 +5,12 @@
 from PyQt4 import QtGui
 from sqlalchemy import desc
 from gettext import gettext as _
+
 from database import Operation, session
-from datahelper import tabbox, graph_for_type, consumption, max_consumption, duration
-from common import PowerWidget, PowerPageTitle, PowerTableWidget, PowerBoxTitle
+from datahelper import (tabbox, graph_for_type, consumption,
+                                    max_consumption, duration)
+from common import (PowerWidget, PowerPageTitle, PowerTableWidget,
+                                                    PowerBoxTitle)
 
 
 class DashbordViewWidget(PowerWidget):
@@ -26,9 +29,11 @@ class DashbordViewWidget(PowerWidget):
         consuption = max_consumption()
         duration_cut = duration()
         if consuption:
-            box.addItem (u'The increased consumption is %s cfa (%s).' % (consuption[1], consuption[0]))
+            box.addItem(u'The increased consumption is %s cfa (%s).'\
+                                        % (consuption[1], consuption[0]))
         if duration_cut:
-            box.addItem (u'The biggest break is %s (%s).' % (duration_cut[0], duration_cut[1]))
+            box.addItem(u'The biggest break is %s (%s).'\
+                                % (duration_cut[0], duration_cut[1]))
 
         tablebox_balance = QtGui.QVBoxLayout()
         tablebox_consumption = QtGui.QVBoxLayout()

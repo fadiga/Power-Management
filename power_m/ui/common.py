@@ -14,8 +14,8 @@ class PowerPageTitle(QtGui.QLabel):
         super(PowerPageTitle, self).__init__(*args, **kwargs)
         self.setFont(QtGui.QFont("Times New Roman", 20))
         self.setAlignment(Qt.AlignCenter)
-        
-        
+
+
 class PowerBoxTitle(QtGui.QLabel):
 
     def __init__(self, *args, **kwargs):
@@ -41,7 +41,7 @@ class PowerWidget(QtGui.QWidget):
 
     def open_dialog(self, dialog, modal=False, *args, **kwargs):
         return self.parentWidget().open_dialog(dialog, \
-                                               modal=modal, *args, **kwargs)
+                                            modal=modal, *args, **kwargs)
 
 
 class PowerTableWidget(QtGui.QTableWidget, PowerWidget):
@@ -191,6 +191,7 @@ class PowerTableWidget(QtGui.QTableWidget, PowerWidget):
 
 
 class TabPane(QtGui.QScrollArea):
+
     def __init__(self, parent=None):
         super(TabPane, self).__init__(parent)
 

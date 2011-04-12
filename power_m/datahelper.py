@@ -3,9 +3,10 @@
 # maintainer: alou
 
 from PyQt4 import QtGui
-from database import *
 from datetime import date, datetime
 from sqlalchemy import desc, func
+
+from database import *
 from ui.common import TabPane
 from graph import graphic
 
@@ -34,16 +35,17 @@ def last_balance():
         return None
 
 
-def last_operation(type_):
+def last_operation(type_op):
     """ last cou """
     try:
         last_operation = session.query(Operation).\
-                    filter(Operation.type==type_).\
+                    filter(Operation.type == type_op).\
                     order_by(desc(Operation.date_op)).first()
         return last_operation
 
     except:
         return 0
+
 
 def duration():
     """ duration """
@@ -55,6 +57,7 @@ def duration():
         return duration, last_reprise.date_op
     except AttributeError:
         pass
+
 
 def consumption():
     """ Calculation of consumption per day."""
@@ -77,6 +80,7 @@ def max_consumption():
         return cons
     except ValueError:
         pass
+
 
 def graph_for_type(title, type):
     x = [(op.date_op.strftime(u'%d-%m-%Y %Hh:%Mmn'))

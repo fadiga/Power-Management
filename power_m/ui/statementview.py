@@ -11,6 +11,7 @@ from database import *
 from dashboard import DashbordViewWidget
 from common import PowerWidget, PowerPageTitle
 from datahelper import last_balance
+from utils import raise_success, raise_error
 
 
 class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
@@ -103,5 +104,6 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
                                         unicode(value_op), balance)
                 session.add(operation)
                 session.commit()
+                raise_success((u'Confirmation'), (u'Registered opération'))
                 self.value_.clear()
         self.change_main_context(DashbordViewWidget)
