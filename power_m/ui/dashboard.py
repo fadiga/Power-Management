@@ -79,7 +79,7 @@ class BalanceTableWidget(PowerTableWidget):
     def set_data_for(self):
         self.data = [(op.date_op.strftime(u'%d-%m-%Y %Hh:%Mmn'),\
                       op.type, op.value, op.balance)
-            for op in session.query(Operation).filter(Operation.type=='Solde')\
+            for op in session.query(Operation)\
                              .order_by(desc(Operation.date_op)).all()]
 
 

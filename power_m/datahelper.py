@@ -38,8 +38,8 @@ def last_operation(type_):
     """ last cou """
     try:
         last_operation = session.query(Operation).\
-                    filter(Operation.type==type_)\
-                    .order_by(desc(Operation.date_op)).first()
+                    filter(Operation.type==type_).\
+                    order_by(desc(Operation.date_op)).first()
         return last_operation
 
     except:
@@ -62,9 +62,7 @@ def consumption():
     data_balance = [(op.balance,\
                     op.date_op.strftime(u'%d-%m-%Y %Hh:%Mmn'))\
                             for op in session.query(Operation).\
-                            filter(Operation.type == "Solde").\
-                            filter(Operation.type == "Ajout").\
-                            order_by(Operation.date_op)]
+                            order_by(desc(Operation.date_op))]
 
     for i in range(len(data_balance) - 1):
         list_consump.append((data_balance[i][1],\

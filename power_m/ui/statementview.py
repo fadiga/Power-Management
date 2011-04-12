@@ -99,7 +99,6 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
                     balance = unicode(value_op)
                 if type_op == "Reprise" or type_op == "Coupure":
                     balance = unicode(last_b)
-
                 operation = Operation(datetime_, unicode(type_op),\
                                         unicode(value_op), balance)
                 session.add(operation)
