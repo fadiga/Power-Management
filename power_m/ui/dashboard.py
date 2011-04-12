@@ -10,7 +10,7 @@ from database import Operation, session
 from datahelper import (tabbox, graph_for_type, consumption,
                                     max_consumption, duration)
 from common import (PowerWidget, PowerPageTitle, PowerTableWidget,
-                                                    PowerBoxTitle)
+                                                PowerBoxTitle)
 
 
 class DashbordViewWidget(PowerWidget):
@@ -29,10 +29,10 @@ class DashbordViewWidget(PowerWidget):
         consuption = max_consumption()
         duration_cut = duration()
         if consuption:
-            box.addItem(u'The increased consumption is %s cfa (%s).'\
+            box.addItem(u"The increased consumption is %s cfa (%s)."\
                                         % (consuption[1], consuption[0]))
         if duration_cut:
-            box.addItem(u'The biggest break is %s (%s).'\
+            box.addItem(u"The biggest break is %s (%s)."\
                                 % (duration_cut[0], duration_cut[1]))
 
         tablebox_balance = QtGui.QVBoxLayout()
@@ -49,7 +49,7 @@ class DashbordViewWidget(PowerWidget):
         pixmap = QtGui.QPixmap("graph.png")
         label = QtGui.QLabel()
         label.setPixmap(pixmap)
-        graph_for_type('Representation graphique du solde par jour', 'Solde')
+        graph_for_type('Representation graphique du solde par jour', 'balance')
         box_left.addWidget(label)
 
         hbox_alert.addWidget(self.title_alert)

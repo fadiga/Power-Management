@@ -50,11 +50,11 @@ def last_operation(type_op):
 def duration():
     """ duration """
     try:
-        last_coupure = last_operation('Coupure')
-        last_reprise = last_operation('Reprise')
+        last_cut = last_operation('cut')
+        last_recovery= last_operation('recovery')
 
-        duration = last_reprise.date_op - last_coupure.date_op
-        return duration, last_reprise.date_op
+        duration = last_recovery.date_op - last_cut.date_op
+        return duration, last_recovery.date_op
     except AttributeError:
         pass
 

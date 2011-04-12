@@ -9,7 +9,7 @@ from database import *
 
 date_ = datetime(2011, 02, 03, 10, 30)
 
-op = Operation(date_, 'Solde', 12000)
+op = Operation(date_, 'balance', 12000)
 
 try:
     session.add(op)
