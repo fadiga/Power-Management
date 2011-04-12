@@ -63,7 +63,8 @@ def consumption():
     """ Calculation of consumption per day."""
     list_consump = []
     data_balance = [(op.balance,\
-                    op.date_op.strftime(u'%d-%m-%Y %Hh:%Mmn'))\
+                    op.date_op.strftime(u'%d-%m-%Y %Hh:%Mmn'),\
+                    op.type)\
                             for op in session.query(Operation).\
                             order_by(desc(Operation.date_op))]
 
