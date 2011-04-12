@@ -47,13 +47,14 @@ def last_operation(type_):
 
 def duration():
     """ duration """
+    try:
+        last_coupure = last_operation('Coupure')
+        last_reprise = last_operation('Reprise')
 
-    last_coupure = last_operation('Coupure')
-    last_reprise = last_operation('Reprise')
-
-    duration = last_reprise.date_op - last_coupure.date_op
-    return duration, last_reprise.date_op
-
+        duration = last_reprise.date_op - last_coupure.date_op
+        return duration, last_reprise.date_op
+    except AttributeError:
+        pass
 
 def consumption():
     """ Calculation of consumption per day."""
@@ -73,9 +74,11 @@ def consumption():
 
 def max_consumption():
     """ max consumption """
-    cons = max(consumption())
-    return cons
-
+    try:
+        cons = max(consumption())
+        return cons
+    except ValueError:
+        pass
 
 def graph_for_type(title, type):
     x = [(op.date_op.strftime(u'%d-%m-%Y %Hh:%Mmn'))

@@ -21,13 +21,15 @@ class DashbordViewWidget(PowerWidget):
         box_left = QtGui.QHBoxLayout()
         box_rigth = QtGui.QHBoxLayout()
         hbox_alert = QtGui.QVBoxLayout()
-        
+
         box = QtGui.QListWidget()
         consuption = max_consumption()
         duration_cut = duration()
-        box.addItem (u'The increased consumption is %s cfa (%s).' % (consuption[1], consuption[0]))
-        box.addItem (u'The biggest break is %s (%s).' % (duration_cut[0], duration_cut[1]))
-        
+        if consuption:
+            box.addItem (u'The increased consumption is %s cfa (%s).' % (consuption[1], consuption[0]))
+        if duration_cut:
+            box.addItem (u'The biggest break is %s (%s).' % (duration_cut[0], duration_cut[1]))
+
         tablebox_balance = QtGui.QVBoxLayout()
         tablebox_consumption = QtGui.QVBoxLayout()
 
@@ -35,7 +37,7 @@ class DashbordViewWidget(PowerWidget):
         self.title_alert = PowerPageTitle(u"Alert")
         self.title_box_balance = PowerBoxTitle(u"Table balances")
         self.title_box_consumption = PowerBoxTitle(u"Table consumptions")
-        
+
         self.table_balance = BalanceTableWidget(parent=self)
         self.table_consumption = ConsumptionTableWidget(parent=self)
 
@@ -47,7 +49,7 @@ class DashbordViewWidget(PowerWidget):
 
         hbox_alert.addWidget(self.title_alert)
         hbox_alert.addWidget(box)
-        
+
         vbox.addWidget(self.title)
         tablebox_balance.addWidget(self.title_box_balance)
         tablebox_balance.addWidget(self.table_balance)
@@ -77,7 +79,7 @@ class BalanceTableWidget(PowerTableWidget):
     def set_data_for(self):
         self.data = [(op.date_op.strftime(u'%d-%m-%Y %Hh:%Mmn'),\
                       op.type, op.value, op.balance)
-            for op in session.query(Operation)\
+            for op in session.query(Operation).filter(Operation.type=='Solde')\
                              .order_by(desc(Operation.date_op)).all()]
 
 
