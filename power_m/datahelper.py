@@ -69,8 +69,9 @@ def consumption():
                             order_by(desc(Operation.date_op))]
 
     for i in range(len(data_balance) - 1):
-        list_consump.append((data_balance[i][1],\
-                    abs(data_balance[i + 1][0] - data_balance[i][0])))
+        if data_balance[i][2] == "balance":
+            list_consump.append((data_balance[i][1],\
+                        abs(data_balance[i + 1][0] - data_balance[i][0])))
     return list_consump
 
 
