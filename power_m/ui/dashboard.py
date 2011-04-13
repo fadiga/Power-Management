@@ -49,7 +49,7 @@ class DashbordViewWidget(PowerWidget):
         pixmap = QtGui.QPixmap("graph.png")
         label = QtGui.QLabel()
         label.setPixmap(pixmap)
-        graph_for_type('Representation graphique du solde par jour', 'balance')
+
         box_left.addWidget(label)
 
         hbox_alert.addWidget(self.title_alert)
@@ -80,6 +80,7 @@ class BalanceTableWidget(PowerTableWidget):
                         _(u"Value"), _(u"Balance")]
         self.set_data_for()
         self.refresh(True)
+        graph_for_type('Representation graphique du solde par jour', 'balance')
 
     def set_data_for(self):
         self.data = [(op.date_op.strftime(u'%d-%m-%Y %Hh:%Mmn'),\

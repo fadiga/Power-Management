@@ -91,4 +91,6 @@ def graph_for_type(title, type):
     y = [(op.value) for op in session.query(Operation).\
                             filter(Operation.type == type).\
                             order_by(Operation.date_op).all()]
-    #~ graphic(title, y, '%s (s)' % type, x, 'time (s)')
+    graphic(title, y, type, x, 'time (s)')
+
+graph_for_type("title", "type")

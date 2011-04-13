@@ -16,18 +16,17 @@ def graphic(titleg, datay, labely, datax, labelx):
     '''
     x = arange(len(datay))
     formatter = FuncFormatter(ff)
-    print "start  "
-    ax = subplot(111)
+    ax = subplot(312)
     ax.yaxis.set_major_formatter(formatter)
     title(titleg)
     xlabel(labelx)
     ylabel(labely)
     grid(True)
     bar(x, datay)
-    xticks(x + 0.5,  datax )
+    xticks(x + 0.1,  datax )
     labels = ax.get_xticklabels()
-    setp(labels, rotation=30, fontsize=12)
-    savefig('graph.png', dpi=50)
+    setp(labels, rotation=10, fontsize=12)
+    savefig('graph.png',dpi=52)
 
 
 def ff(x, pos):
