@@ -8,7 +8,7 @@ from gettext import gettext as _
 from dashboard import DashbordViewWidget
 from common import PowerWidget
 from statementview import AddstatementViewWidget
-
+from registreview import RegistreWidget
 
 class MenuBar(QtGui.QMenuBar, PowerWidget):
 
@@ -57,7 +57,7 @@ class MenuBar(QtGui.QMenuBar, PowerWidget):
 
     #Print
     def goto_print(self):
-        print u'print'
+        self.open_dialog(RegistreWidget, modal=True)
 
     def goto_add_statement(self):
         self.open_dialog(AddstatementViewWidget, modal=True)
