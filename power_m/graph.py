@@ -14,6 +14,7 @@ def graphic(titleg, datay, labely, datax, labelx):
             datax = data x (liste)
             labelx = label x (string)
     '''
+
     x = arange(len(datay))
     formatter = FuncFormatter(ff)
     ax = subplot(312)
@@ -26,8 +27,18 @@ def graphic(titleg, datay, labely, datax, labelx):
     xticks(x + 0.1,  datax )
     labels = ax.get_xticklabels()
     setp(labels, rotation=10, fontsize=12)
-    savefig('graph.png',dpi=52)
-
+    print labely,datay
+    print labelx,datax
+    if labely == "balance":
+        savefig('graph_banlance.png',dpi=52)
+        print "b OK"
+    if labely == "consumption":
+        savefig('graph_consumption.png',dpi=52)
+        print "c Ok"
+    else:
+        pass
+        print 'eeee'
+    print "=================================================="
 
 def ff(x, pos):
     'The two args are the value and tick position'
