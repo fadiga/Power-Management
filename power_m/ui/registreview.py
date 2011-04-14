@@ -8,7 +8,7 @@ from PyQt4 import QtCore
 
 from common import PowerWidget
 from database import Operation, session
-from prints import build_operations_report
+from prints import build_consumption_report, build_balance_report
 from utils import uopen_file
 
 
@@ -32,7 +32,6 @@ class RegistreWidget(QtGui.QDialog, PowerWidget):
         #data
         self.data_type = ['Balance', 'Consumption']
 
-        self.box_type.addItem(_(u"All Type"))
         for index in xrange(0, len(self.data_type)):
             type_ = self.data_type[index]
             self.box_type.addItem(_(u'%(type)s') % {'type': type_})
@@ -53,14 +52,13 @@ class RegistreWidget(QtGui.QDialog, PowerWidget):
         self.setLayout(vbox)
 
     def operation_pdf(self):
-        """ Call build_operations_report """
-        index = self.box_type.currentIndex()
-        if index == 1:
-            type_='Balance'
-        elif index == 2:
-            type_ = 'Consumption'
-        else:
-            type_ = 'All type'
+        ''' Call build_operations_report '''
 
-        pdf_report = build_operations_report(type_)
+        index = self.box_type.currentIndex()
+
+        if index == 0:
+            pdf_report = build_balance_report()
+        elif index == 1:
+            pdf_report = build_consumption_report()
+
         uopen_file(pdf_report)

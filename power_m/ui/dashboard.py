@@ -86,7 +86,7 @@ class BalanceTableWidget(PowerTableWidget):
         self.data = [(op.date_op.strftime(u'%d-%m-%Y %Hh:%Mmn'),\
                       op.type, op.value, op.balance)
             for op in session.query(Operation)\
-                             .order_by(desc(Operation.date_op)).all()]
+                             .order_by(desc(Operation.date_op)).all()][:5]
 
 
 class ConsumptionTableWidget(PowerTableWidget):
@@ -101,4 +101,4 @@ class ConsumptionTableWidget(PowerTableWidget):
     def set_data_for(self):
 
         self.data = self.data = [(op[0], op[1])
-            for op in consumption()]
+            for op in consumption()][:5]
