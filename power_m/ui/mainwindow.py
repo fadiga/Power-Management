@@ -15,7 +15,7 @@ class MainWindows(QtGui.QMainWindow):
         QtGui.QMainWindow.__init__(self)
 
         self.setGeometry(0, 30, 900, 650)
-        self.setWindowTitle('Prower Management')
+        self.setWindowTitle(_(u'Power Management'))
         self.setWindowIcon(QtGui.QIcon('icons/power-icon.png'))
         self.menubar = MenuBar(self)
         self.setMenuBar(self.menubar)

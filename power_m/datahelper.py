@@ -63,7 +63,7 @@ def consumption():
     """ Calculation of consumption per day."""
     list_consump = []
     data_balance = [(op.balance,\
-                    op.date_op.strftime(u'%d-%m-%Y %Hh:%Mmn'),\
+                    op.date_op.strftime(_(u'%d-%m-%Y %Hh:%Mmn')),\
                     op.type)\
                             for op in session.query(Operation).\
                             order_by(desc(Operation.date_op))]
@@ -85,7 +85,7 @@ def max_consumption():
 
 
 def graph_for_type(title, type):
-    x = [(op.date_op.strftime(u'%d-%m-%Y %Hh:%Mmn'))
+    x = [(op.date_op.strftime(_(u'%d-%m-%Y %Hh:%Mmn')))
         for op in session.query(Operation).filter(Operation.type == type).\
                                     order_by(Operation.date_op).all()]
     y = [(op.value) for op in session.query(Operation).\

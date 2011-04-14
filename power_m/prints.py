@@ -2,9 +2,7 @@
 # encoding=utf-8
 # maintainer: alou
 
-
-from gettext import gettext as _
-from sqlalchemy import func, desc
+from sqlalchemy import desc
 
 from database import Operation, session
 from doclib import Document, Text, Table

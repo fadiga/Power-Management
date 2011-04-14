@@ -2,7 +2,6 @@
 # encoding=utf-8
 # maintainer: alou
 
-from gettext import gettext as _
 from PyQt4 import QtGui
 from PyQt4.QtCore import Qt
 MAIN_WIDGET_SIZE = 900

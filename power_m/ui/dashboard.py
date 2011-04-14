@@ -4,7 +4,6 @@
 
 from PyQt4 import QtGui
 from sqlalchemy import desc
-from gettext import gettext as _
 
 from database import Operation, session
 from datahelper import (tabbox, graph_for_type, consumption,
@@ -29,19 +28,21 @@ class DashbordViewWidget(PowerWidget):
         consuption = max_consumption()
         duration_cut = duration()
         if consuption:
-            box.addItem(u"The increased consumption is %s cfa (%s)."\
-                                        % (consuption[1], consuption[0]))
+            box.addItem(_(u"The increased consumption is %(conso)s cfa (%(date)s).")\
+                                        % {'conso': consuption[1],
+                                           'date': consuption[0]})
         if duration_cut:
-            box.addItem(u"The biggest break is %s (%s)."\
-                                % (duration_cut[0], duration_cut[1]))
+            box.addItem(_(u"The biggest break is %(duration)s (%(date)s).")\
+                                % {'duration' : duration_cut[0],
+                                   'date' : duration_cut[1]})
 
         tablebox_balance = QtGui.QVBoxLayout()
         tablebox_consumption = QtGui.QVBoxLayout()
 
-        self.title = PowerPageTitle(u"Dashboard")
-        self.title_alert = PowerPageTitle(u"Alert")
-        self.title_box_balance = PowerBoxTitle(u"Table balances")
-        self.title_box_consumption = PowerBoxTitle(u"Table consumptions")
+        self.title = PowerPageTitle(_(u"Dashboard"))
+        self.title_alert = PowerPageTitle(_(u"Alert"))
+        self.title_box_balance = PowerBoxTitle(_(u"Table balances"))
+        self.title_box_consumption = PowerBoxTitle(_(u"Table consumptions"))
 
         self.table_balance = BalanceTableWidget(parent=self)
         self.table_consumption = ConsumptionTableWidget(parent=self)
@@ -80,10 +81,10 @@ class BalanceTableWidget(PowerTableWidget):
                         _(u"Value"), _(u"Balance")]
         self.set_data_for()
         self.refresh(True)
-        graph_for_type('Representation graphique du solde par jour', 'balance')
+        graph_for_type(_(u'Representation graphique du solde par jour'), 'balance')
 
     def set_data_for(self):
-        self.data = [(op.date_op.strftime(u'%d-%m-%Y %Hh:%Mmn'),\
+        self.data = [(op.date_op.strftime(_(u'%d-%m-%Y %Hh:%Mmn')),\
                       op.type, op.value, op.balance)
             for op in session.query(Operation)\
                              .order_by(desc(Operation.date_op)).all()][:5]

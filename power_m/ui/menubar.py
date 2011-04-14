@@ -3,7 +3,6 @@
 # maintainer: alou
 
 from PyQt4 import QtGui, QtCore
-from gettext import gettext as _
 
 from dashboard import DashbordViewWidget
 from common import PowerWidget
@@ -47,7 +46,7 @@ class MenuBar(QtGui.QMenuBar, PowerWidget):
         file.addAction(exit)
         # Menu go to
         goto = self.addMenu(_(u"&Go to"))
-        goto.addAction(_(u"Dashbord"),\
+        goto.addAction(_(u"Dashboard"),\
                                     self.goto_dashbord)
         goto.addAction(_(u"Add Statement"),\
                                        self.goto_add_statement)

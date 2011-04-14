@@ -1,0 +1,198 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR yɛlɛman s.à.r.l
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: power_m 0.1\n"
+"Report-Msgid-Bugs-To: bugs@yeleman.com\n"
+"POT-Creation-Date: 2011-04-14 12:29+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: /home/yelema3/projets/Power-Management/power_m//database.py:42
+#, python-format
+msgid "<Operation('%(value)s')>"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m//database.py:45
+#, python-format
+msgid "%(date_op)s %(type)s: %(value)s %(balance)s"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m//datahelper.py:66
+#: /home/yelema3/projets/Power-Management/power_m//datahelper.py:88
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:87
+msgid "%d-%m-%Y %Hh:%Mmn"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m//prints.py:19
+msgid "List of balances"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m//prints.py:23
+#: /home/yelema3/projets/Power-Management/power_m//prints.py:68
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:80
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:98
+msgid "Date"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m//prints.py:24
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:80
+msgid "Type"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m//prints.py:25
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:81
+msgid "Value"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m//prints.py:26
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:81
+msgid "Balance"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m//prints.py:64
+msgid "List of consumptions"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m//prints.py:69
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:98
+msgid "Consumption"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m//utils.py:36
+#, python-format
+msgid "File %s is not available."
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/common.py:56
+msgid "TOTAL"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:31
+#, python-format
+msgid "The increased consumption is %(conso)s cfa (%(date)s)."
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:35
+#, python-format
+msgid "The biggest break is %(duration)s (%(date)s)."
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:42
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:49
+msgid "Dashboard"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:43
+msgid "Alert"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:44
+msgid "Table balances"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:45
+msgid "Table consumptions"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:84
+msgid "Representation graphique du solde par jour"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/mainwindow.py:18
+msgid "Power Management"
+msgstr ""
+
+#. Menu File
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:21
+msgid "&File"
+msgstr ""
+
+#. Delete
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:23
+msgid "Delete a statement"
+msgstr ""
+
+#. Print
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:30
+msgid "Print"
+msgstr ""
+
+#. Export
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:36
+msgid "&Export data"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:37
+msgid "Backup Database"
+msgstr ""
+
+#. Exit
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:40
+msgid "Exit"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:42
+msgid "Exit application"
+msgstr ""
+
+#. Menu go to
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:48
+msgid "&Go to"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:51
+msgid "Add Statement"
+msgstr ""
+
+#. Menu help
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:54
+msgid "Help"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:55
+msgid "About"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:78
+msgid "About Power-M"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:79
+msgid ""
+"Power-M Power Management Software\n"
+"\n"
+"© 2011 yɛlɛman s.à.r.l\n"
+"Hippodrome, Avenue Al Quds, \n"
+"BPE. 3713 - Bamako (Mali)\n"
+"Tel: (223) 76 33 30 05\n"
+"www.yeleman.com\n"
+"info@yeleman.com\n"
+"\n"
+"Alou Dolo, Ibrahima Fadiga, \n"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/registreview.py:19
+msgid "Choice of type"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/registreview.py:23
+msgid "Choose a type"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/registreview.py:36
+#, python-format
+msgid "%(type)s"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/registreview.py:40
+msgid "list of operations per type"
+msgstr ""

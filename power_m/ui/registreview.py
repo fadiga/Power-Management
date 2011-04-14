@@ -2,7 +2,6 @@
 # encoding=utf-8
 # maintainer: Alou
 
-from gettext import gettext as _
 from PyQt4 import QtGui
 from PyQt4 import QtCore
 
