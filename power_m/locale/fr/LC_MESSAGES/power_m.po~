@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: anm 0.1\n"
 "Report-Msgid-Bugs-To: bugs@yeleman.com\n"
-"POT-Creation-Date: 2011-04-14 12:25+0000\n"
+"POT-Creation-Date: 2011-04-14 12:28+0000\n"
 "PO-Revision-Date: 2011-04-14 12:27-0000\n"
 "Last-Translator: Alou <aloud7@gmail.com>\n"
 "Language-Team: French\n"
@@ -108,7 +108,8 @@ msgid "Representation graphique du solde par jour"
 msgstr "Representation graphique du solde par jour"
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/mainwindow.py:18
-msgid "Prower Management"
+#, fuzzy
+msgid "Power Management"
 msgstr "Gestion de l'alimentation"
 
 #. Menu File
@@ -206,4 +207,3 @@ msgstr "%(type)s"
 #: /home/yelema3/projets/Power-Management/power_m/ui/registreview.py:40
 msgid "list of operations per type"
 msgstr "Did you mean: Choice of type Choose a typeType text or a website address or translate a document.CancelListenRead phoneticallyEnglish to French translationliste des opérations par type"
-

@@ -47,11 +47,14 @@ class DashbordViewWidget(PowerWidget):
         self.table_balance = BalanceTableWidget(parent=self)
         self.table_consumption = ConsumptionTableWidget(parent=self)
 
-        pixmap = QtGui.QPixmap("graph.png")
-        label = QtGui.QLabel()
-        label.setPixmap(pixmap)
-
-        box_left.addWidget(label)
+        pixmap_balance = QtGui.QPixmap("graph_banlance.png")
+        label_b = QtGui.QLabel()
+        label_b.setPixmap(pixmap_balance)
+        box_left.addWidget(label_b)
+        pixmap_cons = QtGui.QPixmap("graph_consumption.png")
+        label_cons = QtGui.QLabel()
+        label_cons.setPixmap(pixmap_cons)
+        box_rigth.addWidget(label_cons)
 
         hbox_alert.addWidget(self.title_alert)
         hbox_alert.addWidget(box)
@@ -81,7 +84,8 @@ class BalanceTableWidget(PowerTableWidget):
                         _(u"Value"), _(u"Balance")]
         self.set_data_for()
         self.refresh(True)
-        graph_for_type(_(u'Representation graphique du solde par jour'), 'balance')
+        graph_for_type(_(u"Graphic representation of the balance per day"),\
+                        u"balance")
 
     def set_data_for(self):
         self.data = [(op.date_op.strftime(_(u'%d-%m-%Y %Hh:%Mmn')),\
@@ -98,7 +102,8 @@ class ConsumptionTableWidget(PowerTableWidget):
         self.header = [_(u"Date"), _(u"Consumption")]
         self.set_data_for()
         self.refresh(True)
-
+        graph_for_type(_(u"Graphic representation of Consumption per day"),\
+                        u"consumption")
     def set_data_for(self):
 
         self.data = self.data = [(op[0], op[1])
