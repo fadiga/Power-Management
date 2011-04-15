@@ -58,16 +58,20 @@ class DashbordViewWidget(PowerWidget):
 
         hbox_alert.addWidget(self.title_alert)
         hbox_alert.addWidget(box)
+        # On recupere la derniere balance
+        balance = last_balance()
+        if balance == None:
+            balance = 0
+        else:
+            balance = "balance:  %(balance)s FCFA"% {"balance": balance}
 
-        last_balance = session.query(Operation).\
-                                    order_by(desc(Operation.date_op)).first()
-        balance = "balance:  %(balance)s FCFA"% {"balance": last_balance.balance}
-        list_type = ["Week", "Month"]
-        lastbalance = QtGui.QLabel(balance)
         #Combobox widget
+        list_type = ["Week", "Month"]
         self.box_type = QtGui.QComboBox()
         for index in list_type:
             self.box_type.addItem((u'%(type)s') % {'type': index})
+
+        lastbalance = QtGui.QLabel(balance)
         box_combo = QtGui.QHBoxLayout()
         box_combo.addWidget(self.box_type)
         box_combo.addSpacing(330)

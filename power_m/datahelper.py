@@ -29,7 +29,7 @@ def last_balance():
     try:
         last_balance = session.query(Operation).\
                                     order_by(desc(Operation.date_op)).first()
-        return last_balance.value
+        return last_balance.balance
 
     except AttributeError:
         return None
