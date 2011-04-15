@@ -36,9 +36,9 @@ def build_balance_report(filename=None, format='pdf'):
     table.set_alignment(Table.ALIGN_RIGHT, column=2)
     table.set_alignment(Table.ALIGN_RIGHT, column=3)
 
-    operations = [(op.date_op, op.type, op.value, op.balance ) \
+    operations = [(op.date_op, op.type, op.value, op.balance) \
                     for op in session.query(Operation) \
-                    .filter(Operation.type=='balance')
+                    .filter(Operation.type == "balance")
                     .order_by(desc(Operation.date_op)).all()]
 
     for operation in operations:

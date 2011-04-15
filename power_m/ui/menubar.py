@@ -8,6 +8,8 @@ from dashboard import DashbordViewWidget
 from common import PowerWidget
 from statementview import AddstatementViewWidget
 from registreview import RegistreWidget
+from deleteview import DeleteViewWidget
+
 
 class MenuBar(QtGui.QMenuBar, PowerWidget):
 
@@ -23,7 +25,7 @@ class MenuBar(QtGui.QMenuBar, PowerWidget):
         self.delete = QtGui.QAction(_(u"Delete a statement"), self)
         self.connect(self.delete, QtCore.SIGNAL("triggered()"),\
                                             self.goto_delete_statement)
-        self.delete.setEnabled(False)
+        self.delete.setEnabled(True)
         file.addAction(self.delete)
 
         # Print
@@ -63,7 +65,7 @@ class MenuBar(QtGui.QMenuBar, PowerWidget):
 
     #Delete an operation.
     def goto_delete_statement(self):
-        print u'delete'
+        self.open_dialog(DeleteViewWidget, modal=True)
 
     #Export the database.
     def goto_export_db(self):

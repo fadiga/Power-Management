@@ -10,6 +10,7 @@ from ui.window import PowerWindow
 import tempfile
 import subprocess
 
+
 class PDFFileUnavailable(IOError):
     pass
 
@@ -36,6 +37,7 @@ def uopen_file(filename):
         raise IOError(_(u"File %s is not available.") % filename)
     subprocess.call('%(cmd)s %(file)s' \
                     % {'cmd': uopen_prefix(), 'file': filename}, shell=True)
+
 
 def get_temp_filename(extension=None):
     f = tempfile.NamedTemporaryFile(delete=False)

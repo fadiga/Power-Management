@@ -5,6 +5,7 @@
 from matplotlib.ticker import FuncFormatter
 from pylab import *
 
+
 def graphic(titleg, datay, labely, datax, labelx):
     ''' is the graph
        param :
@@ -24,17 +25,16 @@ def graphic(titleg, datay, labely, datax, labelx):
     ylabel(labely)
     grid(True)
     bar(x, datay)
-    xticks(x + 0.1,  datax )
+    xticks(x + 0.1,  datax)
     labels = ax.get_xticklabels()
     setp(labels, rotation=10, fontsize=12)
 
     if labely == u"balance":
-        savefig('graph_banlance.png',dpi=52)
+        savefig('graph_banlance.png', dpi=52)
     elif labely == "consumption":
-        savefig('graph_consumption.png',dpi=52)
+        savefig('graph_consumption.png', dpi=52)
 
 
 def ff(x, pos):
     'The two args are the value and tick position'
     return u'%s' % (x)
-

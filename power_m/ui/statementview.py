@@ -18,16 +18,17 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
 
     def __init__(self, parent=0, *args, **kwargs):
         QtGui.QDialog.__init__(self, parent, *args, **kwargs)
-        self.title = PowerPageTitle(u"statement")
+        self.setWindowTitle(_(u"Add statement"))
+        self.title = PowerPageTitle(_(u"statement"))
 
         vbox = QtGui.QVBoxLayout()
         vbox.addWidget(self.title)
 
         titelebox = QtGui.QHBoxLayout()
-        titelebox.addWidget(QtGui.QLabel((u"Date")))
-        titelebox.addWidget(QtGui.QLabel((u"Time")))
-        titelebox.addWidget(QtGui.QLabel((u"Type")))
-        titelebox.addWidget(QtGui.QLabel((u"Value")))
+        titelebox.addWidget(QtGui.QLabel((_(u"Date"))))
+        titelebox.addWidget(QtGui.QLabel((_(u"Time"))))
+        titelebox.addWidget(QtGui.QLabel((_(u"Type"))))
+        titelebox.addWidget(QtGui.QLabel((_(u"Value"))))
         vbox.addLayout(titelebox)
 
         self.list_data = []
@@ -40,7 +41,7 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
             self.value_ = QtGui.QLineEdit()
             self.value_.setValidator(QtGui.QIntValidator())
 
-            liste_type = ["balance", "added", "cut", "recovery"]
+            liste_type = [_("balance"), _("added"), _("cut"), _("recovery")]
             #Combobox widget
             self.box_type = QtGui.QComboBox()
             for index in liste_type:
@@ -57,9 +58,9 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
             vbox.addLayout(editbox)
 
         button_hbox = QtGui.QHBoxLayout()
-        butt = QtGui.QPushButton((u"Add"))
+        butt = QtGui.QPushButton(_(u"Add"))
         butt.clicked.connect(self.add_statement)
-        cancel_but = QtGui.QPushButton((u"Cancel"))
+        cancel_but = QtGui.QPushButton(_(u"Cancel"))
         cancel_but.clicked.connect(self.cancel)
         button_hbox.addWidget(butt)
         button_hbox.addWidget(cancel_but)
@@ -105,5 +106,5 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
                 session.add(operation)
                 session.commit()
         self.value_.clear()
-        raise_success((u'Confirmation'), (u'Registered opération'))
+        raise_success(_(u'Confirmation'), _(u'Registered opération'))
         self.change_main_context(DashbordViewWidget)

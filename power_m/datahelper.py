@@ -14,7 +14,7 @@ from graph import graphic
 def tabbox(box1, Box2):
     ''' adds a box with tab '''
     tab_widget = QtGui.QTabWidget()
-    for heading in ["Graphe", "Table"]:
+    for heading in [_("Graphe"), _("Table")]:
             pane = TabPane()
             if heading == "Graphe":
                 pane.addBox(box1)
@@ -51,7 +51,7 @@ def duration():
     """ duration """
     try:
         last_cut = last_operation('cut')
-        last_recovery= last_operation('recovery')
+        last_recovery = last_operation('recovery')
 
         duration = last_recovery.date_op - last_cut.date_op
         return duration, last_recovery.date_op
@@ -63,7 +63,7 @@ def consumption():
     """ Calculation of consumption per day."""
     list_consump = []
     data_balance = [(op.balance,\
-                    op.date_op.strftime(_(u'%d-%m-%Y %Hh:%Mmn')),\
+                    op.date_op.strftime(_(u'%x %Hh:%Mmn')),\
                     op.type)\
                             for op in session.query(Operation).\
                             order_by(desc(Operation.date_op))]
@@ -95,12 +95,12 @@ def graph_for_type(title, type):
             for cons in consumption()][:5]
 
     elif type == u"balance":
-        x = [(op.date_op.strftime(_(u'%d-%m-%Y %Hh:%Mmn')))
+        x = [(op.date_op.strftime(_(u' %x %Hh:%Mmn')))
         for op in session.query(Operation).\
                             order_by(desc(Operation.date_op)).all()][:5]
         y = [(op.value) for op in session.query(Operation)\
                             .order_by(desc(Operation.date_op))\
-                            .filter(Operation.type=='balance').all()][:5]
+                            .filter(Operation.type == 'balance').all()][:5]
     graphic(title, y, type, x, u'time (s)')
 
 graph_for_type(u"", u"")

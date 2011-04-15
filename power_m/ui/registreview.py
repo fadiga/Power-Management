@@ -29,7 +29,7 @@ class RegistreWidget(QtGui.QDialog, PowerWidget):
         self.box_type = QtGui.QComboBox()
 
         #data
-        self.data_type = ['Balance', 'Consumption']
+        self.data_type = [_(u"Balance"), _(u"Consumption")]
 
         for index in xrange(0, len(self.data_type)):
             type_ = self.data_type[index]
@@ -37,7 +37,7 @@ class RegistreWidget(QtGui.QDialog, PowerWidget):
 
         button_hbox = QtGui.QHBoxLayout()
 
-        operation_but = QtGui.QPushButton(_("list of operations per type"))
+        operation_but = QtGui.QPushButton(_("Print"))
         button_hbox.addWidget(operation_but)
         operation_but.clicked.connect(self.operation_pdf)
 

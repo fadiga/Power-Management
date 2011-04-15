@@ -28,13 +28,14 @@ class DashbordViewWidget(PowerWidget):
         consuption = max_consumption()
         duration_cut = duration()
         if consuption:
-            box.addItem(_(u"The increased consumption is %(conso)s cfa (%(date)s).")\
-                                        % {'conso': consuption[1],
-                                           'date': consuption[0]})
+            box.addItem(_(u"The increased consumption is %(conso)s"
+                          u" cfa (%(date)s).")\
+                          % {'conso': consuption[1],
+                          'date': consuption[0]})
         if duration_cut:
             box.addItem(_(u"The biggest break is %(duration)s (%(date)s).")\
-                                % {'duration' : duration_cut[0],
-                                   'date' : duration_cut[1]})
+                                % {'duration': duration_cut[0],\
+                                        'date': duration_cut[1]})
 
         tablebox_balance = QtGui.QVBoxLayout()
         tablebox_consumption = QtGui.QVBoxLayout()
@@ -63,10 +64,10 @@ class DashbordViewWidget(PowerWidget):
         if balance == None:
             balance = 0
         else:
-            balance = "balance:  %(balance)s FCFA"% {"balance": balance}
+            balance = _("Balance:  %(balance)s FCFA") % {"balance": balance}
 
         #Combobox widget
-        list_type = ["Week", "Month"]
+        list_type = [_("Week"), _("Month")]
         self.box_type = QtGui.QComboBox()
         for index in list_type:
             self.box_type.addItem((u'%(type)s') % {'type': index})
@@ -108,7 +109,7 @@ class BalanceTableWidget(PowerTableWidget):
                         u"balance")
 
     def set_data_for(self):
-        self.data = [(op.date_op.strftime(_(u'%d-%m-%Y %Hh:%Mmn')),\
+        self.data = [(op.date_op.strftime(_(u'%x %Hh:%Mmn')),\
                       op.type, op.value, op.balance)
             for op in session.query(Operation)\
                              .order_by(desc(Operation.date_op)).all()][:5]
@@ -124,6 +125,7 @@ class ConsumptionTableWidget(PowerTableWidget):
         self.refresh(True)
         graph_for_type(_(u"Graphic representation of Consumption per day"),\
                         u"consumption")
+
     def set_data_for(self):
 
         self.data = self.data = [(op[0], op[1])

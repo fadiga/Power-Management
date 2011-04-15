@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: anm 0.1\n"
 "Report-Msgid-Bugs-To: bugs@yeleman.com\n"
-"POT-Creation-Date: 2011-04-14 15:35+0000\n"
-"PO-Revision-Date: 2011-04-14 15:38-0000\n"
+"POT-Creation-Date: 2011-04-15 17:01+0000\n"
+"PO-Revision-Date: 2011-04-15 17:02-0000\n"
 "Last-Translator: Alou <aloud7@gmail.com>\n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -26,29 +26,51 @@ msgstr "<Operation('%(value)s')>"
 msgid "%(date_op)s %(type)s: %(value)s %(balance)s"
 msgstr "%(date_op)s %(type)s: %(value)s %(balance)s"
 
+#: /home/yelema3/projets/Power-Management/power_m//datahelper.py:17
+msgid "Graphe"
+msgstr "Graphe"
+
+#: /home/yelema3/projets/Power-Management/power_m//datahelper.py:17
+msgid "Table"
+msgstr "Tableau"
+
+#: /home/yelema3/projets/Power-Management/power_m//datahelper.py:64
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:112
+msgid "%x %Hh:%Mmn"
+msgstr "%x %Hh:%Mmn"
+
+#: /home/yelema3/projets/Power-Management/power_m//datahelper.py:96
+msgid " %x %Hh:%Mmn"
+msgstr " %x %Hh:%Mmn"
+
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:19
 msgid "List of balances"
 msgstr "Liste des soldes"
 
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:23
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:68
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:83
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:102
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:104
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:123
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:28
 msgid "Date"
 msgstr "Date"
 
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:24
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:83
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:104
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:30
 msgid "Type"
 msgstr "Type"
 
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:25
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:84
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:105
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:31
 msgid "Value"
 msgstr "Valeur"
 
+#. data
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:26
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:84
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:105
+#: /home/yelema3/projets/Power-Management/power_m/ui/registreview.py:32
 msgid "Balance"
 msgstr "Solde"
 
@@ -57,7 +79,8 @@ msgid "List of consumptions"
 msgstr "Liste des consommations"
 
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:69
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:102
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:123
+#: /home/yelema3/projets/Power-Management/power_m/ui/registreview.py:32
 msgid "Consumption"
 msgstr "Consommation"
 
@@ -75,100 +98,151 @@ msgstr "TOTAL"
 msgid "The increased consumption is %(conso)s cfa (%(date)s)."
 msgstr "L'augmentation de la consommation %(conso)s cfa (%(date)s)."
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:35
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:36
 #, python-format
 msgid "The biggest break is %(duration)s (%(date)s)."
 msgstr " La plus grande rupture est%(duration)s (%(date)s)."
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:42
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:49
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:43
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:50
 msgid "Dashboard"
 msgstr "Accueil"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:43
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:44
 msgid "Alert"
 msgstr "Alerte"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:44
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:45
 msgid "Table balances"
 msgstr "Tableau des soldes"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:45
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:46
 msgid "Table consumptions"
 msgstr "Tableau des consommations"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:87
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:67
+#, python-format
+msgid "Balance:  %(balance)s FCFA"
+msgstr "Solde:  %(balance)s FCFA"
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:70
+msgid "Month"
+msgstr "Mois"
+
+#. Combobox widget
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:70
+msgid "Week"
+msgstr "Semaine"
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:108
 msgid "Graphic representation of the balance per day"
 msgstr "Représentation graphique des solde par jour"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:91
-msgid "%d-%m-%Y %Hh:%Mmn"
-msgstr "%d-%m-%Y %Hh:%Mmn"
-
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:105
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:126
 msgid "Graphic representation of Consumption per day"
 msgstr "Représentation graphique de la consommation par jour"
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/deleteview.py:25
+msgid "Delete an operation"
+msgstr "Supprimer un rélévé"
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/deleteview.py:27
+msgid "There is no operation removed for this account"
+msgstr "Il n'y a aucune opération a supprimé"
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/deleteview.py:28
+msgid "OK"
+msgstr "OK"
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/deleteview.py:36
+msgid "Select a statement has deleted"
+msgstr "Sélectionnez un rélévé à supprimer"
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/deleteview.py:45
+#, python-format
+msgid "%(date_op)s - %(type)s - %(value)s/%(balance)s "
+msgstr "%(date_op)s - %(type)s - %(value)s/%(balance)s "
+
+#. Delete Button widget.
+#: /home/yelema3/projets/Power-Management/power_m/ui/deleteview.py:60
+msgid "Delete"
+msgstr "Supprimer"
+
+#. Cancel Button widget.
+#: /home/yelema3/projets/Power-Management/power_m/ui/deleteview.py:64
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:63
+msgid "Cancel"
+msgstr "Annuler"
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/deleteview.py:88
+msgid "Deleting"
+msgstr "Suppression"
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/deleteview.py:88
+msgid "Operation succefully removed"
+msgstr "Opération supprimé avec succès"
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/mainwindow.py:18
 msgid "Power Management"
 msgstr "Gestion de l'alimentation"
 
 #. Menu File
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:21
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:22
 msgid "&File"
 msgstr "&Fichier"
 
 #. Delete
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:23
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:24
 msgid "Delete a statement"
 msgstr "Supprimer un rélévé"
 
 #. Print
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:30
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:31
+#: /home/yelema3/projets/Power-Management/power_m/ui/registreview.py:40
 msgid "Print"
 msgstr "Impression"
 
 #. Export
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:36
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:37
 msgid "&Export data"
 msgstr "&Exporter des données"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:37
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:38
 msgid "Backup Database"
 msgstr "Backup Database"
 
 #. Exit
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:40
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:41
 msgid "Exit"
 msgstr "Quitter"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:42
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:43
 msgid "Exit application"
 msgstr "Quitter l'application"
 
 #. Menu go to
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:48
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:49
 msgid "&Go to"
 msgstr "&Aller à"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:51
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:52
 msgid "Add Statement"
 msgstr "Ajouter un rélévé"
 
 #. Menu help
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:54
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:55
 msgid "Help"
 msgstr "Aide"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:55
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:56
 msgid "About"
 msgstr "A propos"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:78
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:79
 msgid "About Power-M"
 msgstr "A propos Power-M"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:79
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:80
 msgid ""
 "Power-M Power Management Software\n"
 "\n"
@@ -205,10 +279,50 @@ msgstr "Choisissez un type"
 msgid "%(type)s"
 msgstr "%(type)s"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/registreview.py:40
-msgid "list of operations per type"
-msgstr "liste des opérations par type"
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:21
+msgid "Add statement"
+msgstr "Ajouter un rélévé"
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:22
+msgid "statement"
+msgstr "Rélévé"
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:29
+msgid "Time"
+msgstr "Heure"
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:44
+msgid "added"
+msgstr "Ajout"
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:44
+msgid "balance"
+msgstr "Solde"
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:44
+msgid "cut"
+msgstr "Coupure"
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:44
+msgid "recovery"
+msgstr "Reprise"
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:61
+msgid "Add"
+msgstr "Ajouter"
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:109
+msgid "Confirmation"
+msgstr "Confirmation"
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:109
+msgid "Registered opération"
+msgstr "Opération enrégistrée avec succès"
 
 #~ msgid "Representation graphique du solde par jour"
 #~ msgstr "Representation graphique du solde par jour"
+#~ msgid "Delete operation"
+#~ msgstr "Supprimer un rélévé"
+#~ msgid "list of operations per type"
+#~ msgstr "liste des opérations par type"
 
