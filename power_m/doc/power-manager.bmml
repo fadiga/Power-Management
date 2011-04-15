@@ -50,7 +50,7 @@
     </control>
     <control controlID="40" controlTypeID="com.balsamiq.mockups::Title" x="81" y="57" w="538" h="-1" measuredW="477" measuredH="62" zOrder="9" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Slode%3A%205000%20fcfa%20%28date%29</text>
+        <text>Solde%3A%205000%20fcfa%20%28date%29</text>
       </controlProperties>
     </control>
     <control controlID="41" controlTypeID="com.balsamiq.mockups::Label" x="205" y="193" w="-1" h="-1" measuredW="48" measuredH="29" zOrder="25" locked="false" isInGroup="-1">

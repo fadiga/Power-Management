@@ -7,7 +7,7 @@ from sqlalchemy import desc
 
 from database import Operation, session
 from datahelper import (tabbox, graph_for_type, consumption,
-                                    max_consumption, duration)
+                                    max_consumption, duration, last_balance)
 from common import (PowerWidget, PowerPageTitle, PowerTableWidget,
                                                 PowerBoxTitle)
 
@@ -59,7 +59,22 @@ class DashbordViewWidget(PowerWidget):
         hbox_alert.addWidget(self.title_alert)
         hbox_alert.addWidget(box)
 
+        liste_type = ["Week", "Month"]
+
+        balance = "balance:  %(balance)s FCFA"% {"balance": last_balance()}
+        lastbalance = QtGui.QLabel(balance)
+        #Combobox widget
+        self.box_type = QtGui.QComboBox()
+        for index in liste_type:
+            self.box_type.addItem((u'%(type)s') % {'type': index})
+        box_combo = QtGui.QHBoxLayout()
+        box_combo.addWidget(self.box_type)
+        box_combo.addSpacing(330)
+        box_combo.addWidget(lastbalance)
+        box_combo.addSpacing(500)
+
         vbox.addWidget(self.title)
+        vbox.addLayout(box_combo)
         tablebox_balance.addWidget(self.title_box_balance)
         tablebox_balance.addWidget(self.table_balance)
         tablebox_consumption.addWidget(self.title_box_consumption)

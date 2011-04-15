@@ -104,6 +104,6 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
                                         unicode(value_op), balance)
                 session.add(operation)
                 session.commit()
-            self.value_.clear()
+        self.value_.clear()
         raise_success((u'Confirmation'), (u'Registered opération'))
         self.change_main_context(DashbordViewWidget)
