@@ -34,7 +34,7 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
         self.list_data = []
         for n in range(0, 5):
             self.date_ = QtGui.QDateTimeEdit(QtCore.QDate.currentDate())
-            self.date_.setDisplayFormat("%x")
+            self.date_.setDisplayFormat("dd/MM/yyyy")
             self.time = QtGui.QDateTimeEdit(QtCore.QTime.currentTime())
             self.time.setDisplayFormat("hh:mm")
             self.type_ = QtGui.QLineEdit()
@@ -80,7 +80,7 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
             type_op = dic[data[2].currentIndex()]
             value_op = data[3].text()
 
-            year, month, day = date_op.split('-')
+            day, month, year = date_op.split('/')
             hour, minute = time_op.split(':')
             datetime_ = datetime(int(year), int(month),\
                                     int(day), int(hour),\
