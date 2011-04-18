@@ -4,7 +4,7 @@
 
 from PyQt4 import QtGui
 from datetime import date, datetime
-from sqlalchemy import desc, func
+from sqlalchemy import desc
 
 from database import *
 from ui.common import TabPane
@@ -89,13 +89,13 @@ def graph_for_type(title, type):
     y = []
 
     if type == u"consumption":
-        x = [(cons[0].strftime(_(u'%d/%b %Hh:%Mmn')))
+        x = [(cons[0].strftime(_(u'%d/%b')))
             for cons in consumption()][:5]
         y = [(cons[1])
             for cons in consumption()][:5]
 
     elif type == u"balance":
-        x = [(op.date_op.strftime(_(u' %d/%b %Hh:%Mmn')))
+        x = [(op.date_op.strftime(_(u' %d/%b')))
         for op in session.query(Operation).\
                             order_by(desc(Operation.date_op)).all()][:5]
         y = [(op.value) for op in session.query(Operation)\
