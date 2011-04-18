@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: anm 0.1\n"
 "Report-Msgid-Bugs-To: bugs@yeleman.com\n"
-"POT-Creation-Date: 2011-04-15 17:01+0000\n"
-"PO-Revision-Date: 2011-04-15 17:02-0000\n"
+"POT-Creation-Date: 2011-04-18 08:58+0000\n"
+"PO-Revision-Date: 2011-04-18 08:58-0000\n"
 "Last-Translator: Alou <aloud7@gmail.com>\n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -34,12 +34,12 @@ msgstr "Graphe"
 msgid "Table"
 msgstr "Tableau"
 
-#: /home/yelema3/projets/Power-Management/power_m//datahelper.py:64
+#: /home/yelema3/projets/Power-Management/power_m//datahelper.py:66
 #: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:112
 msgid "%x %Hh:%Mmn"
 msgstr "%x %Hh:%Mmn"
 
-#: /home/yelema3/projets/Power-Management/power_m//datahelper.py:96
+#: /home/yelema3/projets/Power-Management/power_m//datahelper.py:98
 msgid " %x %Hh:%Mmn"
 msgstr " %x %Hh:%Mmn"
 
@@ -84,7 +84,7 @@ msgstr "Liste des consommations"
 msgid "Consumption"
 msgstr "Consommation"
 
-#: /home/yelema3/projets/Power-Management/power_m//utils.py:36
+#: /home/yelema3/projets/Power-Management/power_m//utils.py:37
 #, python-format
 msgid "File %s is not available."
 msgstr "fichier %s n'est pas disponible."
@@ -104,7 +104,7 @@ msgid "The biggest break is %(duration)s (%(date)s)."
 msgstr " La plus grande rupture est%(duration)s (%(date)s)."
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:43
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:50
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:51
 msgid "Dashboard"
 msgstr "Accueil"
 
@@ -187,62 +187,62 @@ msgid "Power Management"
 msgstr "Gestion de l'alimentation"
 
 #. Menu File
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:22
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:23
 msgid "&File"
 msgstr "&Fichier"
 
 #. Delete
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:24
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:25
 msgid "Delete a statement"
-msgstr "Supprimer un rélévé"
+msgstr "Supprimer un relévé"
 
 #. Print
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:31
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:32
 #: /home/yelema3/projets/Power-Management/power_m/ui/registreview.py:40
 msgid "Print"
 msgstr "Impression"
 
 #. Export
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:37
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:38
 msgid "&Export data"
 msgstr "&Exporter des données"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:38
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:39
 msgid "Backup Database"
 msgstr "Backup Database"
 
 #. Exit
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:41
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:42
 msgid "Exit"
 msgstr "Quitter"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:43
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:44
 msgid "Exit application"
 msgstr "Quitter l'application"
 
 #. Menu go to
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:49
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:50
 msgid "&Go to"
 msgstr "&Aller à"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:52
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:53
 msgid "Add Statement"
-msgstr "Ajouter un rélévé"
+msgstr "Ajouter un relévé"
 
 #. Menu help
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:55
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:56
 msgid "Help"
 msgstr "Aide"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:56
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:57
 msgid "About"
 msgstr "A propos"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:79
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:80
 msgid "About Power-M"
 msgstr "A propos Power-M"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:80
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:81
 msgid ""
 "Power-M Power Management Software\n"
 "\n"
@@ -281,11 +281,11 @@ msgstr "%(type)s"
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:21
 msgid "Add statement"
-msgstr "Ajouter un rélévé"
+msgstr "Ajouter un relévé"
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:22
 msgid "statement"
-msgstr "Rélévé"
+msgstr "Relévé"
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:29
 msgid "Time"
@@ -319,10 +319,11 @@ msgstr "Confirmation"
 msgid "Registered opération"
 msgstr "Opération enrégistrée avec succès"
 
-#~ msgid "Representation graphique du solde par jour"
-#~ msgstr "Representation graphique du solde par jour"
-#~ msgid "Delete operation"
-#~ msgstr "Supprimer un rélévé"
 #~ msgid "list of operations per type"
 #~ msgstr "liste des opérations par type"
 
+#~ msgid "Delete operation"
+#~ msgstr "Supprimer un rélévé"
+
+#~ msgid "Representation graphique du solde par jour"
+#~ msgstr "Representation graphique du solde par jour"
