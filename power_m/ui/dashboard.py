@@ -39,8 +39,14 @@ class DashbordViewWidget(PowerWidget):
 
         tablebox_balance = QtGui.QVBoxLayout()
         tablebox_consumption = QtGui.QVBoxLayout()
+        # On recupere la derniere balance
+        balance = last_balance()
+        if balance == None:
+            balance = _("Balance:  %(balance)s FCFA") % {"balance": 0}
+        else:
+            balance = _("Balance:  %(balance)s FCFA") % {"balance": balance}
 
-        self.title = PowerPageTitle(_(u"Dashboard"))
+        self.title = PowerPageTitle(balance)
         self.title_alert = PowerPageTitle(_(u"Alert"))
         self.title_box_balance = PowerBoxTitle(_(u"Table balances"))
         self.title_box_consumption = PowerBoxTitle(_(u"Table consumptions"))
@@ -59,12 +65,6 @@ class DashbordViewWidget(PowerWidget):
 
         hbox_alert.addWidget(self.title_alert)
         hbox_alert.addWidget(box)
-        # On recupere la derniere balance
-        balance = last_balance()
-        if balance == None:
-            balance = 0
-        else:
-            balance = _("Balance:  %(balance)s FCFA") % {"balance": balance}
 
         #Combobox widget
         list_type = [_("Week"), _("Month")]
@@ -72,12 +72,9 @@ class DashbordViewWidget(PowerWidget):
         for index in list_type:
             self.box_type.addItem((u'%(type)s') % {'type': index})
 
-        lastbalance = QtGui.QLabel(balance)
         box_combo = QtGui.QHBoxLayout()
         box_combo.addWidget(self.box_type)
-        box_combo.addSpacing(330)
-        box_combo.addWidget(lastbalance)
-        box_combo.addSpacing(500)
+        box_combo.addSpacing(930)
 
         vbox.addWidget(self.title)
         vbox.addLayout(box_combo)
@@ -128,5 +125,5 @@ class ConsumptionTableWidget(PowerTableWidget):
 
     def set_data_for(self):
 
-        self.data = self.data = [(op[0], op[1])
+        self.data = self.data = [(op[0].strftime(_(u'%x %Hh:%Mmn')), op[1])
             for op in consumption()][:5]

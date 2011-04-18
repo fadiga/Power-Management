@@ -73,8 +73,8 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
 
     def add_statement(self):
         ''' add statement '''
+        dic = {0: "balance", 1: "added", 2: "cut", 3: "recovery"}
         for data in self.list_data:
-            dic = {0: "balance", 1: "added", 2: "cut", 3: "recovery"}
             date_op = data[0].text()
             time_op = data[1].text()
             type_op = dic[data[2].currentIndex()]
