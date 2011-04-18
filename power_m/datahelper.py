@@ -63,7 +63,7 @@ def consumption():
     """ Calculation of consumption per day."""
     list_consump = []
     data_balance = [(op.balance,\
-                    op.date_op.strftime(_(u'%x %Hh:%Mmn')),\
+                    op.date_op,\
                     op.type)\
                             for op in session.query(Operation).\
                             order_by(desc(Operation.date_op))]
@@ -89,13 +89,13 @@ def graph_for_type(title, type):
     y = []
 
     if type == u"consumption":
-        x = [(cons[0])
+        x = [(cons[0].strftime(_(u'%d/%b %Hh:%Mmn')))
             for cons in consumption()][:5]
         y = [(cons[1])
             for cons in consumption()][:5]
 
     elif type == u"balance":
-        x = [(op.date_op.strftime(_(u' %x %Hh:%Mmn')))
+        x = [(op.date_op.strftime(_(u' %d/%b %Hh:%Mmn')))
         for op in session.query(Operation).\
                             order_by(desc(Operation.date_op)).all()][:5]
         y = [(op.value) for op in session.query(Operation)\
