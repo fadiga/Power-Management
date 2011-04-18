@@ -42,7 +42,7 @@ class DashbordViewWidget(PowerWidget):
         # On recupere la derniere balance
         balance = last_balance()
         if balance == None:
-            balance = 0
+            balance = _("Balance:  %(balance)s FCFA") % {"balance": 0}
         else:
             balance = _("Balance:  %(balance)s FCFA") % {"balance": balance}
 
