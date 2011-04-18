@@ -58,13 +58,13 @@ class DeleteViewWidget(QtGui.QDialog, PowerWidget):
 
             #Delete Button widget.
             delete_but = QtGui.QPushButton(_(u"Delete"))
-            button_hbox.addWidget(delete_but)
             delete_but.clicked.connect(self.delete)
             #Cancel Button widget.
             cancel_but = QtGui.QPushButton(_(u"Cancel"))
-            button_hbox.addWidget(cancel_but)
             cancel_but.clicked.connect(self.cancel)
 
+            button_hbox.addWidget(cancel_but)
+            button_hbox.addWidget(delete_but)
             #Create the QVBoxLayout contenaire.
             vbox = QtGui.QVBoxLayout()
             vbox.addLayout(title_hbox)

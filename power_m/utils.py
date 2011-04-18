@@ -4,7 +4,7 @@
 
 import os
 import sys
-
+import locale
 from PyQt4 import QtGui
 from ui.window import PowerWindow
 import tempfile

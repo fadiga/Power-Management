@@ -4,7 +4,7 @@
 
 from PyQt4 import QtGui
 from sqlalchemy import desc
-
+from utils import get_temp_filename, formatted_number
 from database import Operation, session
 from datahelper import (tabbox, graph_for_type, consumption,
                                     max_consumption, duration, last_balance)
@@ -30,7 +30,7 @@ class DashbordViewWidget(PowerWidget):
         if consuption:
             box.addItem(_(u"The increased consumption is %(conso)s"
                           u" cfa (%(date)s).")\
-                          % {'conso': consuption[1],
+                          % {'conso': formatted_number(consuption[1]),
                           'date': consuption[0]})
         if duration_cut:
             box.addItem(_(u"The biggest break is %(duration)s (%(date)s).")\
@@ -44,7 +44,8 @@ class DashbordViewWidget(PowerWidget):
         if balance == None:
             balance = _("Balance:  %(balance)s FCFA") % {"balance": 0}
         else:
-            balance = _("Balance:  %(balance)s FCFA") % {"balance": balance}
+            balance = _("Balance:  %(balance)s FCFA") % \
+                                        {"balance": formatted_number(balance)}
 
         self.title = PowerPageTitle(balance)
         self.title_alert = PowerPageTitle(_(u"Alert"))
@@ -107,7 +108,8 @@ class BalanceTableWidget(PowerTableWidget):
 
     def set_data_for(self):
         self.data = [(op.date_op.strftime(_(u'%x %Hh:%Mmn')),\
-                      op.type, op.value, op.balance)
+                      op.type, formatted_number(op.value),\
+                      formatted_number(op.balance))
             for op in session.query(Operation)\
                              .order_by(desc(Operation.date_op)).all()][:5]
 
@@ -125,5 +127,6 @@ class ConsumptionTableWidget(PowerTableWidget):
 
     def set_data_for(self):
 
-        self.data = self.data = [(op[0].strftime(_(u'%x %Hh:%Mmn')), op[1])
+        self.data = self.data = [(op[0].strftime(_(u'%x %Hh:%Mmn')),\
+                            formatted_number(op[1]))
             for op in consumption()][:5]
