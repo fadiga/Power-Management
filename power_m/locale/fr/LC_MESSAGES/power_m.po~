@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: anm 0.1\n"
 "Report-Msgid-Bugs-To: bugs@yeleman.com\n"
 "POT-Creation-Date: 2011-04-15 17:01+0000\n"
-"PO-Revision-Date: 2011-04-15 17:01-0000\n"
+"PO-Revision-Date: 2011-04-18 08:58-0000\n"
 "Last-Translator: Alou <aloud7@gmail.com>\n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -194,7 +194,7 @@ msgstr "&Fichier"
 #. Delete
 #: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:24
 msgid "Delete a statement"
-msgstr "Supprimer un rélévé"
+msgstr "Supprimer un relévé"
 
 #. Print
 #: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:31
@@ -227,7 +227,7 @@ msgstr "&Aller à"
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:52
 msgid "Add Statement"
-msgstr "Ajouter un rélévé"
+msgstr "Ajouter un relévé"
 
 #. Menu help
 #: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:55
@@ -281,11 +281,11 @@ msgstr "%(type)s"
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:21
 msgid "Add statement"
-msgstr "Ajouter un rélévé"
+msgstr "Ajouter un relévé"
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:22
 msgid "statement"
-msgstr "Rélévé"
+msgstr "Relévé"
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:29
 msgid "Time"

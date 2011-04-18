@@ -62,8 +62,8 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
         butt.clicked.connect(self.add_statement)
         cancel_but = QtGui.QPushButton(_(u"Cancel"))
         cancel_but.clicked.connect(self.cancel)
-        button_hbox.addWidget(butt)
         button_hbox.addWidget(cancel_but)
+        button_hbox.addWidget(butt)
 
         vbox.addLayout(button_hbox)
         self.setLayout(vbox)
