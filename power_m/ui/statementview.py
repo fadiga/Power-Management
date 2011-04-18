@@ -24,11 +24,11 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
         vbox = QtGui.QVBoxLayout()
         vbox.addWidget(self.title)
 
-        titelebox = QtGui.QHBoxLayout()
-        titelebox.addWidget(QtGui.QLabel((_(u"Date"))))
-        titelebox.addWidget(QtGui.QLabel((_(u"Time"))))
-        titelebox.addWidget(QtGui.QLabel((_(u"Type"))))
-        titelebox.addWidget(QtGui.QLabel((_(u"Value"))))
+        titelebox = QtGui.QGridLayout()
+        titelebox.addWidget(QtGui.QLabel((_(u"   Date"))),0,1)
+        titelebox.addWidget(QtGui.QLabel((_(u"    Time"))),0,2)
+        titelebox.addWidget(QtGui.QLabel((_(u"Type"))),0,3)
+        titelebox.addWidget(QtGui.QLabel((_(u"Value"))),0,4)
         vbox.addLayout(titelebox)
 
         self.list_data = []
