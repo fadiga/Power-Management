@@ -35,8 +35,8 @@ class DashbordViewWidget(PowerWidget):
         if consuption:
             box.addItem(_(u"The increased consumption is %(conso)s"
                           u" cfa (%(date)s).")\
-                          % {'conso': formatted_number(consuption[1]),
-                          'date': consuption[0].strftime(u'%x')})
+                          % {'conso': formatted_number(consuption[0]),
+                          'date': consuption[1].strftime(u'%x')})
         if duration_cut:
             box.addItem(_(u"The biggest break is %(duration)s (%(date)s).")\
                                 % {'duration': duration_cut[0],\
@@ -138,6 +138,6 @@ class ConsumptionTableWidget(PowerTableWidget):
 
     def set_data_for(self):
 
-        self.data = self.data = [(op[0].strftime(_(u'%x %Hh:%Mmn')),\
+        self.data = [(op[0].strftime(_(u'%x %Hh:%Mmn')),\
                             formatted_number(op[1]))
             for op in consumption()]

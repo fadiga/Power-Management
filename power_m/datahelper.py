@@ -99,9 +99,16 @@ def estimated_duration():
 def max_consumption():
     """ max consumption """
     try:
+        lists = consumption()
+        l=[]
+
+        for c in lists:
+            l.append(c[1])
+
         if len(consumption()) > 1:
-            cons = max(consumption())
-            return cons
+            cons = max(l)
+            i = l.index(cons)
+            return cons, lists[i][0]
         else:
             pass
     except ValueError:
