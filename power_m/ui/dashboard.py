@@ -139,6 +139,8 @@ class ConsumptionTableWidget(PowerTableWidget):
 
     def set_data_for(self):
         graph_for_type(u"consumption")
-        self.data = self.data = [(op[0].strftime(_(u'%x %Hh:%Mmn')),\
+        consumptions = consumption()
+        consumptions.reverse()
+        self.data = [(op[0].strftime(_(u'%x %Hh:%Mmn')),\
                             formatted_number(op[1]))
-            for op in consumption()]
+            for op in consumptions]

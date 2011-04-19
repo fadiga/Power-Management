@@ -73,12 +73,14 @@ def consumption():
                     op.date_op,\
                     op.type)\
                             for op in session.query(Operation).\
-                            order_by(desc(Operation.date_op))]
+                            order_by(asc(Operation.date_op))]
 
-    for i in range(len(data_balance) - 1):
-        if data_balance[i][2] == "balance":
+    for i in range(len(data_balance) -1):
+        if data_balance[i][2] == "balance" and data_balance[i+1][2] == "balance":
             list_consump.append((data_balance[i][1],\
-                        abs(data_balance[i + 1][0] - data_balance[i][0])))
+                        abs(data_balance[i][0] - data_balance[i + 1][0])))
+
+
     return list_consump
 
 def average_consumption():
@@ -122,10 +124,8 @@ def graph_for_type(type):
     if type == u"consumption":
         x = [(cons[0].strftime(_(u'%d/%b')))
             for cons in consumption()]
-        x.reverse()
         y = [(cons[1])
             for cons in consumption()]
-        y.reverse()
     graphic(y, type, x)
 
 graph_for_type("")
