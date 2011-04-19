@@ -42,8 +42,8 @@ class DashbordViewWidget(PowerWidget):
                                 % {'duration': duration_cut[0],\
                                    'date': duration_cut[1].strftime(u"%x")})
         if avg_conso:
-            box.addItem(_(u"The average consumption is %(avg)s cfa.")\
-                                % {'avg': avg_conso})
+            box.addItem(_(u"The average consumption is %(avg)s FCFA.")\
+                                % {'avg': formatted_number(avg_conso)})
         if num_days:
             box.addItem(_(u"The end balance is estimated at %(num)s days.")\
                                 % {'num': num_days})
@@ -60,7 +60,7 @@ class DashbordViewWidget(PowerWidget):
                                         {"balance": formatted_number(balance)}
 
         self.title = PowerPageTitle(balance)
-        self.title_alert = PowerPageTitle(_(u"Alert"))
+        self.title_alert = PowerPageTitle(_(u"Statistics"))
         self.title_box_balance = PowerBoxTitle(_(u"Table balances"))
         self.title_box_consumption = PowerBoxTitle(_(u"Table consumptions"))
 

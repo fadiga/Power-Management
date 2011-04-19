@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: anm 0.1\n"
 "Report-Msgid-Bugs-To: bugs@yeleman.com\n"
-"POT-Creation-Date: 2011-04-19 09:22+0000\n"
-"PO-Revision-Date: 2011-04-19 09:25-0000\n"
+"POT-Creation-Date: 2011-04-19 17:19+0000\n"
+"PO-Revision-Date: 2011-04-19 16:53-0000\n"
 "Last-Translator: Alou <aloud7@gmail.com>\n"
 "Language-Team: French\n"
 "MIME-Version: 1.0\n"
@@ -34,13 +34,41 @@ msgstr "Graphe"
 msgid "Table"
 msgstr "Tableau"
 
-#: /home/yelema3/projets/Power-Management/power_m//datahelper.py:109
+#: /home/yelema3/projets/Power-Management/power_m//datahelper.py:128
+msgid " %d/%b"
+msgstr " %d/%b"
+
+#: /home/yelema3/projets/Power-Management/power_m//datahelper.py:136
 msgid "%d/%b"
 msgstr "%d/%b"
 
-#: /home/yelema3/projets/Power-Management/power_m//datahelper.py:115
-msgid " %d/%b"
-msgstr " %d/%b"
+#: /home/yelema3/projets/Power-Management/power_m//exports.py:19
+msgid "Save DB as..."
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m//exports.py:28
+msgid "Database exported!"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m//exports.py:29
+msgid ""
+"The Database has been successfuly exported.\n"
+"Keep that file private as it contains your data.\n"
+"Export your data regularly."
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m//exports.py:33
+msgid "Error in exporting Database!"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m//exports.py:34
+msgid ""
+"The database backup could not be exported.\n"
+"Please verify that you selected a destination folder which you have write permissions to.\n"
+"Then retry.\n"
+"\n"
+"Request assistance if the problem persist."
+msgstr ""
 
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:19
 msgid "List of balances"
@@ -50,7 +78,7 @@ msgstr "Liste des soldes"
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:67
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:111
 #: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:114
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:134
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:136
 msgid "Date"
 msgstr "Date"
 
@@ -78,14 +106,14 @@ msgstr "Solde"
 
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:63
 msgid "List of all records."
-msgstr "Liste de tous les relévés."
+msgstr "Liste de tous les relevés."
 
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:107
 msgid "List of consumptions"
 msgstr "Liste des consommations"
 
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:112
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:134
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:136
 #: /home/yelema3/projets/Power-Management/power_m/ui/registreview.py:32
 msgid "Consumption"
 msgstr "Consommation"
@@ -107,12 +135,12 @@ msgstr "La plus grande consommation est  %(conso)s cfa (%(date)s)."
 #: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:41
 #, python-format
 msgid "The biggest break is %(duration)s (%(date)s)."
-msgstr " La plus grande rupture est %(duration)s (%(date)s)."
+msgstr "La plus grande rupture est %(duration)s (%(date)s)."
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:45
 #, python-format
-msgid "The average consumption is %(avg)s cfa."
-msgstr "La moyenne de la consommation est %(avg)s cfa."
+msgid "The average consumption is %(avg)s FCFA."
+msgstr "La moyenne de la consommation est %(avg)s FCFA."
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:48
 #, python-format
@@ -126,8 +154,8 @@ msgid "Balance:  %(balance)s FCFA"
 msgstr "Solde:  %(balance)s FCFA"
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:63
-msgid "Alert"
-msgstr "Alerte"
+msgid "Statistics"
+msgstr "Statistiques"
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:64
 msgid "Table balances"
@@ -147,21 +175,19 @@ msgid "Week"
 msgstr "Semaine"
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:118
-msgid "Graphic representation of the balance per day"
-msgstr "Représentation graphique des solde par jour"
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:44
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:76
+msgid "balance"
+msgstr "Solde"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:122
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:142
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:124
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:145
 msgid "%x %Hh:%Mmn"
 msgstr "%x %Hh:%Mmn"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:137
-msgid "Graphic representation of Consumption per day"
-msgstr "Représentation graphique de la consommation par jour"
-
 #: /home/yelema3/projets/Power-Management/power_m/ui/deleteview.py:25
 msgid "Delete an operation"
-msgstr "Supprimer un rélévé"
+msgstr "Supprimer un relevé"
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/deleteview.py:27
 msgid "There is no operation removed for this account"
@@ -173,7 +199,7 @@ msgstr "OK"
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/deleteview.py:36
 msgid "Select a statement has deleted"
-msgstr "Sélectionnez un rélévé à supprimer"
+msgstr "Sélectionnez un relevé à supprimer"
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/deleteview.py:45
 #, python-format
@@ -204,66 +230,66 @@ msgid "Power Management"
 msgstr "Gestion de l'alimentation"
 
 #. Menu File
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:23
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:24
 msgid "&File"
 msgstr "&Fichier"
 
 #. Delete
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:25
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:26
 msgid "Delete a statement"
-msgstr "Supprimer un relévé"
+msgstr "Supprimer un relevé"
 
 #. Print
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:32
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:33
 #: /home/yelema3/projets/Power-Management/power_m/ui/registreview.py:41
 msgid "Print"
 msgstr "Impression"
 
 #. Export
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:38
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:39
 msgid "&Export data"
 msgstr "&Exporter des données"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:39
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:40
 msgid "Backup Database"
 msgstr "Backup Database"
 
 #. Exit
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:42
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:43
 msgid "Exit"
 msgstr "Quitter"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:44
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:45
 msgid "Exit application"
 msgstr "Quitter l'application"
 
 #. Menu go to
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:50
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:51
 msgid "&Go to"
 msgstr "&Aller à"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:51
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:52
 msgid "Dashboard"
 msgstr "Accueil"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:53
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:54
 msgid "Add Statement"
-msgstr "Ajouter un relévé"
+msgstr "Ajouter un relevé"
 
 #. Menu help
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:56
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:57
 msgid "Help"
 msgstr "Aide"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:57
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:58
 msgid "About"
 msgstr "A propos"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:80
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:81
 msgid "About Power-M"
 msgstr "A propos Power-M"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:81
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:82
 msgid ""
 "Power-M Power Management Software\n"
 "\n"
@@ -306,11 +332,11 @@ msgstr "%(type)s"
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:21
 msgid "Add statement"
-msgstr "Ajouter un relévé"
+msgstr "Ajouter un relevé"
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:22
 msgid "statement"
-msgstr "Relévé"
+msgstr "Relevé"
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:28
 msgid "   Date"
@@ -325,10 +351,6 @@ msgid "added"
 msgstr "Ajout"
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:44
-msgid "balance"
-msgstr "Solde"
-
-#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:44
 msgid "cut"
 msgstr "Coupure"
 
@@ -340,22 +362,39 @@ msgstr "Reprise"
 msgid "Add"
 msgstr "Ajouter"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:109
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:111
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:113
 msgid "Confirmation"
 msgstr "Confirmation"
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:109
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:111
 msgid "Registered opération"
 msgstr "Opération enrégistrée avec succès"
 
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:113
+msgid "There is no valid operation"
+msgstr "Il n'ya pas d'opération valide"
+
 #~ msgid "%d/%b %Hh:%Mmn"
 #~ msgstr "%d/%b %Hh:%Mmn"
+
 #~ msgid " %d/%b %Hh:%Mmn"
 #~ msgstr " %d/%b %Hh:%Mmn"
+
 #~ msgid "list of operations per type"
 #~ msgstr "liste des opérations par type"
+
 #~ msgid "Delete operation"
 #~ msgstr "Supprimer un rélévé"
+
 #~ msgid "Representation graphique du solde par jour"
 #~ msgstr "Representation graphique du solde par jour"
 
+#~ msgid "Graphic representation of Consumption per day"
+#~ msgstr "Représentation graphique de la consommation par jour"
+
+#~ msgid "Graphic representation of the balance per day"
+#~ msgstr "Représentation graphique des solde par jour"
+
+#~ msgid "Alert"
+#~ msgstr "Alerte"

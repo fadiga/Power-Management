@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: power_m 0.1\n"
 "Report-Msgid-Bugs-To: bugs@yeleman.com\n"
-"POT-Creation-Date: 2011-04-19 09:26+0000\n"
+"POT-Creation-Date: 2011-04-19 17:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,12 +34,40 @@ msgstr ""
 msgid "Table"
 msgstr ""
 
-#: /home/yelema3/projets/Power-Management/power_m//datahelper.py:109
+#: /home/yelema3/projets/Power-Management/power_m//datahelper.py:128
+msgid " %d/%b"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m//datahelper.py:136
 msgid "%d/%b"
 msgstr ""
 
-#: /home/yelema3/projets/Power-Management/power_m//datahelper.py:115
-msgid " %d/%b"
+#: /home/yelema3/projets/Power-Management/power_m//exports.py:19
+msgid "Save DB as..."
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m//exports.py:28
+msgid "Database exported!"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m//exports.py:29
+msgid ""
+"The Database has been successfuly exported.\n"
+"Keep that file private as it contains your data.\n"
+"Export your data regularly."
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m//exports.py:33
+msgid "Error in exporting Database!"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m//exports.py:34
+msgid ""
+"The database backup could not be exported.\n"
+"Please verify that you selected a destination folder which you have write permissions to.\n"
+"Then retry.\n"
+"\n"
+"Request assistance if the problem persist."
 msgstr ""
 
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:19
@@ -50,7 +78,7 @@ msgstr ""
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:67
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:111
 #: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:114
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:134
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:136
 msgid "Date"
 msgstr ""
 
@@ -85,7 +113,7 @@ msgid "List of consumptions"
 msgstr ""
 
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:112
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:134
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:136
 #: /home/yelema3/projets/Power-Management/power_m/ui/registreview.py:32
 msgid "Consumption"
 msgstr ""
@@ -111,7 +139,7 @@ msgstr ""
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:45
 #, python-format
-msgid "The average consumption is %(avg)s cfa."
+msgid "The average consumption is %(avg)s FCFA."
 msgstr ""
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:48
@@ -126,7 +154,7 @@ msgid "Balance:  %(balance)s FCFA"
 msgstr ""
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:63
-msgid "Alert"
+msgid "Statistics"
 msgstr ""
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:64
@@ -147,16 +175,15 @@ msgid "Week"
 msgstr ""
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:118
-msgid "Graphic representation of the balance per day"
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:44
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:76
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:101
+msgid "balance"
 msgstr ""
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:122
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:142
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:124
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:145
 msgid "%x %Hh:%Mmn"
-msgstr ""
-
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:137
-msgid "Graphic representation of Consumption per day"
 msgstr ""
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/deleteview.py:25
@@ -204,66 +231,66 @@ msgid "Power Management"
 msgstr ""
 
 #. Menu File
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:23
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:24
 msgid "&File"
 msgstr ""
 
 #. Delete
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:25
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:26
 msgid "Delete a statement"
 msgstr ""
 
 #. Print
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:32
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:33
 #: /home/yelema3/projets/Power-Management/power_m/ui/registreview.py:41
 msgid "Print"
 msgstr ""
 
 #. Export
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:38
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:39
 msgid "&Export data"
 msgstr ""
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:39
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:40
 msgid "Backup Database"
 msgstr ""
 
 #. Exit
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:42
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:43
 msgid "Exit"
 msgstr ""
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:44
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:45
 msgid "Exit application"
 msgstr ""
 
 #. Menu go to
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:50
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:51
 msgid "&Go to"
 msgstr ""
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:51
-msgid "Dashboard"
-msgstr ""
-
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:53
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:52
 msgid "Add Statement"
 msgstr ""
 
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:54
+msgid "Dashboard"
+msgstr ""
+
 #. Menu help
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:56
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:57
 msgid "Help"
 msgstr ""
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:57
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:58
 msgid "About"
 msgstr ""
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:80
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:81
 msgid "About Power-M"
 msgstr ""
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:81
+#: /home/yelema3/projets/Power-Management/power_m/ui/menubar.py:82
 msgid ""
 "Power-M Power Management Software\n"
 "\n"
@@ -311,18 +338,22 @@ msgid "    Time"
 msgstr ""
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:44
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:76
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:96
 msgid "added"
 msgstr ""
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:44
-msgid "balance"
-msgstr ""
-
-#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:44
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:76
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:93
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:103
 msgid "cut"
 msgstr ""
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:44
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:76
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:93
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:103
 msgid "recovery"
 msgstr ""
 
@@ -330,10 +361,15 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:109
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:111
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:113
 msgid "Confirmation"
 msgstr ""
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:109
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:111
 msgid "Registered opération"
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:113
+msgid "There is no valid operation"
 msgstr ""

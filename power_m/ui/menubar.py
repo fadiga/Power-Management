@@ -49,10 +49,10 @@ class MenuBar(QtGui.QMenuBar, PowerWidget):
         file.addAction(exit)
         # Menu go to
         goto = self.addMenu(_(u"&Go to"))
-        goto.addAction(_(u"Dashboard"),\
-                                    self.goto_dashbord)
         goto.addAction(_(u"Add Statement"),\
                                        self.goto_add_statement)
+        goto.addAction(_(u"Dashboard"),\
+                                    self.goto_dashbord)
         #Menu help
         help = self.addMenu(_(u"Help"))
         help.addAction(_(u"About"), self.goto_about)

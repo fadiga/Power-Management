@@ -1,0 +1,10 @@
+1- Graph:
+    * Callibrage non fait;
+    * Superposition des barres.
+
+2- Calcul de la durée de la plus grande coupure.
+
+3- Affichage du dashboard en fonction de la semaine et du mois:
+    * Recharger la page selon la selection.
+
+
