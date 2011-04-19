@@ -119,6 +119,8 @@ class BalanceTableWidget(PowerTableWidget):
                         )
 
     def set_data_for(self):
+        graph_for_type(u"balance")
+
         self.data = [(op.date_op.strftime(_(u'%x %Hh:%Mmn')),\
                       op.type, formatted_number(op.value),\
                       formatted_number(op.balance))
@@ -134,10 +136,12 @@ class ConsumptionTableWidget(PowerTableWidget):
         self.header = [_(u"Date"), _(u"Consumption")]
         self.set_data_for()
         self.refresh(True)
-        graph_for_type(_(u"consumption"))
+
 
     def set_data_for(self):
-
+        graph_for_type(u"consumption")
+        consumptions = consumption()
+        consumptions.reverse()
         self.data = [(op[0].strftime(_(u'%x %Hh:%Mmn')),\
                             formatted_number(op[1]))
-            for op in consumption()]
+            for op in consumptions]
