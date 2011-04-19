@@ -6,8 +6,9 @@ from PyQt4 import QtGui
 from sqlalchemy import desc
 from utils import get_temp_filename, formatted_number
 from database import Operation, session
-from datahelper import (tabbox, graph_for_type, consumption,
-                                    max_consumption, duration, last_balance)
+from datahelper import (tabbox, graph_for_type, consumption, duration,
+                      estimated_duration, max_consumption, average_consumption,
+                      last_balance)
 from common import (PowerWidget, PowerPageTitle, PowerTableWidget,
                                                 PowerBoxTitle)
 
@@ -27,18 +28,29 @@ class DashbordViewWidget(PowerWidget):
         box = QtGui.QListWidget()
         consuption = max_consumption()
         duration_cut = duration()
+        avg_conso = average_consumption()
+        num_days = estimated_duration()
+
+        #All alerts
         if consuption:
             box.addItem(_(u"The increased consumption is %(conso)s"
                           u" cfa (%(date)s).")\
                           % {'conso': formatted_number(consuption[1]),
-                          'date': consuption[0]})
+                          'date': consuption[0].strftime(u'%x')})
         if duration_cut:
             box.addItem(_(u"The biggest break is %(duration)s (%(date)s).")\
                                 % {'duration': duration_cut[0],\
-                                        'date': duration_cut[1]})
+                                   'date': duration_cut[1].strftime(u"%x")})
+        if avg_conso:
+            box.addItem(_(u"The average consumption is %(avg)s cfa.")\
+                                % {'avg': avg_conso})
+        if num_days:
+            box.addItem(_(u"The end balance is estimated at %(num)s days.")\
+                                % {'num': num_days})
 
         tablebox_balance = QtGui.QVBoxLayout()
         tablebox_consumption = QtGui.QVBoxLayout()
+
         # On recupere la derniere balance
         balance = last_balance()
         if balance == None:

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: power_m 0.1\n"
 "Report-Msgid-Bugs-To: bugs@yeleman.com\n"
-"POT-Creation-Date: 2011-04-18 14:56+0000\n"
+"POT-Creation-Date: 2011-04-19 09:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,12 +34,12 @@ msgstr ""
 msgid "Table"
 msgstr ""
 
-#: /home/yelema3/projets/Power-Management/power_m//datahelper.py:92
-msgid "%d/%b %Hh:%Mmn"
+#: /home/yelema3/projets/Power-Management/power_m//datahelper.py:109
+msgid "%d/%b"
 msgstr ""
 
-#: /home/yelema3/projets/Power-Management/power_m//datahelper.py:98
-msgid " %d/%b %Hh:%Mmn"
+#: /home/yelema3/projets/Power-Management/power_m//datahelper.py:115
+msgid " %d/%b"
 msgstr ""
 
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:19
@@ -49,21 +49,21 @@ msgstr ""
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:23
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:67
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:111
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:102
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:122
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:114
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:134
 msgid "Date"
 msgstr ""
 
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:24
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:68
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:102
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:114
 #: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:30
 msgid "Type"
 msgstr ""
 
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:25
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:69
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:103
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:115
 #: /home/yelema3/projets/Power-Management/power_m/ui/statementview.py:31
 msgid "Value"
 msgstr ""
@@ -71,7 +71,7 @@ msgstr ""
 #. data
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:26
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:70
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:103
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:115
 #: /home/yelema3/projets/Power-Management/power_m/ui/registreview.py:32
 msgid "Balance"
 msgstr ""
@@ -85,7 +85,7 @@ msgid "List of consumptions"
 msgstr ""
 
 #: /home/yelema3/projets/Power-Management/power_m//prints.py:112
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:122
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:134
 #: /home/yelema3/projets/Power-Management/power_m/ui/registreview.py:32
 msgid "Consumption"
 msgstr ""
@@ -99,53 +99,63 @@ msgstr ""
 msgid "TOTAL"
 msgstr ""
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:31
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:36
 #, python-format
 msgid "The increased consumption is %(conso)s cfa (%(date)s)."
 msgstr ""
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:36
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:41
 #, python-format
 msgid "The biggest break is %(duration)s (%(date)s)."
 msgstr ""
 
 #: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:45
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:47
+#, python-format
+msgid "The average consumption is %(avg)s cfa."
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:48
+#, python-format
+msgid "The end balance is estimated at %(num)s days."
+msgstr ""
+
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:57
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:59
 #, python-format
 msgid "Balance:  %(balance)s FCFA"
 msgstr ""
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:51
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:63
 msgid "Alert"
 msgstr ""
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:52
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:64
 msgid "Table balances"
 msgstr ""
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:53
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:65
 msgid "Table consumptions"
 msgstr ""
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:71
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:83
 msgid "Month"
 msgstr ""
 
 #. Combobox widget
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:71
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:83
 msgid "Week"
 msgstr ""
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:106
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:118
 msgid "Graphic representation of the balance per day"
 msgstr ""
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:110
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:130
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:122
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:142
 msgid "%x %Hh:%Mmn"
 msgstr ""
 
-#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:125
+#: /home/yelema3/projets/Power-Management/power_m/ui/dashboard.py:137
 msgid "Graphic representation of Consumption per day"
 msgstr ""
 
