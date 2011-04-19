@@ -4,6 +4,7 @@
 
 from PyQt4 import QtGui, QtCore
 
+from exports import export_database_as_file
 from dashboard import DashbordViewWidget
 from common import PowerWidget
 from statementview import AddstatementViewWidget
@@ -69,7 +70,7 @@ class MenuBar(QtGui.QMenuBar, PowerWidget):
 
     #Export the database.
     def goto_export_db(self):
-        print 'export_database_as_file()'
+        export_database_as_file()
 
     # dashbord
     def goto_dashbord(self):
