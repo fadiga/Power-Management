@@ -6,7 +6,7 @@ from matplotlib.ticker import FuncFormatter
 from pylab import *
 
 
-def graphic(datay, labely, datax, labelx):
+def graphic(datay, typey, datax):
     ''' is the graph
        param :
             datay = data y (list)
@@ -27,11 +27,11 @@ def graphic(datay, labely, datax, labelx):
     labels = ax.get_xticklabels()
     setp(labels, rotation=30, fontsize=12)
 
-    if labely == u"balance":
-        savefig('graph_banlance.png', dpi=52)
+    if typey == u"balance":
+        savefig('graph_banlance.png', dpi=57)
 
-    elif labely == "consumption":
-        savefig('graph_consumption.png', dpi=52)
+    elif typey == "consumption":
+        savefig('graph_consumption.png', dpi=57)
 
 
 def ff(x, pos):

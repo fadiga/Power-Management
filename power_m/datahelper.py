@@ -111,7 +111,14 @@ def max_consumption():
 def graph_for_type(type):
     x = []
     y = []
-
+    if type == u"balance":
+        x = [(op.date_op.strftime(_(u' %d/%b')))
+                        for op in session.query(Operation).\
+                            order_by(asc(Operation.date_op))\
+                            .filter(Operation.type == 'balance').all()]
+        y = [(op.balance) for op in session.query(Operation)\
+                            .order_by(asc(Operation.date_op))\
+                            .filter(Operation.type == 'balance').all()]
     if type == u"consumption":
         x = [(cons[0].strftime(_(u'%d/%b')))
             for cons in consumption()]
@@ -119,13 +126,6 @@ def graph_for_type(type):
         y = [(cons[1])
             for cons in consumption()]
         y.reverse()
-    elif type == u"balance":
-        x = [(op.date_op.strftime(_(u' %d/%b')))
-        for op in session.query(Operation).\
-                            order_by(asc(Operation.date_op)).all()]
-        y = [(op.value) for op in session.query(Operation)\
-                            .order_by(asc(Operation.date_op))\
-                            .filter(Operation.type == 'balance').all()]
-    graphic(y, type, x, u'time (s)')
+    graphic(y, type, x)
 
 graph_for_type("")
