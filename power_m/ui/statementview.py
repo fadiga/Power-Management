@@ -7,7 +7,7 @@ from datetime import datetime
 
 from PyQt4 import QtGui, QtCore
 
-from database import *
+from database import Operation, session
 from dashboard import DashbordViewWidget
 from common import PowerWidget, PowerPageTitle
 from datahelper import last_balance

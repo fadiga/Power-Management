@@ -3,10 +3,9 @@
 # maintainer: alou
 
 from PyQt4 import QtGui
-from datetime import date, datetime
 from sqlalchemy import desc
 
-from database import *
+from database import Operation, session
 from ui.common import TabPane
 from graph import graphic
 
@@ -74,12 +73,29 @@ def consumption():
                         abs(data_balance[i + 1][0] - data_balance[i][0])))
     return list_consump
 
+def average_consumption():
+    list_consos = []
+    for c in consumption():
+        list_consos.append(c[1])
+    moy = sum(list_consos)/len(list_consos)
+    return moy
+
+
+def estimated_duration():
+    balance = last_balance()
+    avg_conso = average_consumption()
+    num_days = balance/avg_conso
+    return num_days
+
 
 def max_consumption():
     """ max consumption """
     try:
-        cons = max(consumption())
-        return cons
+        if len(consumption()) > 1:
+            cons = max(consumption())
+            return cons
+        else:
+            pass
     except ValueError:
         pass
 
