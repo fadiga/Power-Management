@@ -4,7 +4,7 @@
 
 from PyQt4 import QtGui
 from datetime import date, datetime
-from sqlalchemy import desc
+from sqlalchemy import desc, asc
 
 from database import *
 from ui.common import TabPane
@@ -32,19 +32,26 @@ def last_balance():
         return last_balance.balance
 
     except AttributeError:
-        return None
+        pass
 
 
-def last_operation(type_op):
+def last_operation(type_op=''):
     """ last cou """
-    try:
-        last_operation = session.query(Operation).\
-                    filter(Operation.type == type_op).\
-                    order_by(desc(Operation.date_op)).first()
-        return last_operation
-
-    except:
-        return 0
+    if type_op != '':
+        try:
+            last_operation = session.query(Operation).\
+                        filter(Operation.type == type_op).\
+                        order_by(desc(Operation.date_op)).first()
+            return last_operation
+        except:
+            return 0
+    else:
+        try:
+            last_operation = session.query(Operation).\
+                        order_by(desc(Operation.date_op)).first()
+            return last_operation.date_op
+        except:
+            pass
 
 
 def duration():
@@ -84,23 +91,24 @@ def max_consumption():
         pass
 
 
-def graph_for_type(title, type):
+def graph_for_type(type):
     x = []
     y = []
 
     if type == u"consumption":
         x = [(cons[0].strftime(_(u'%d/%b')))
-            for cons in consumption()][:5]
+            for cons in consumption()]
+        x.reverse()
         y = [(cons[1])
-            for cons in consumption()][:5]
-
+            for cons in consumption()]
+        y.reverse()
     elif type == u"balance":
         x = [(op.date_op.strftime(_(u' %d/%b')))
         for op in session.query(Operation).\
-                            order_by(desc(Operation.date_op)).all()][:5]
+                            order_by(asc(Operation.date_op)).all()]
         y = [(op.value) for op in session.query(Operation)\
-                            .order_by(desc(Operation.date_op))\
-                            .filter(Operation.type == 'balance').all()][:5]
-    graphic(title, y, type, x, u'time (s)')
+                            .order_by(asc(Operation.date_op))\
+                            .filter(Operation.type == 'balance').all()]
+    graphic(y, type, x, u'time (s)')
 
-graph_for_type(u"", u"")
+graph_for_type("")

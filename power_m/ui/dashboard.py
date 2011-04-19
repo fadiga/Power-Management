@@ -13,7 +13,7 @@ from common import (PowerWidget, PowerPageTitle, PowerTableWidget,
 
 
 class DashbordViewWidget(PowerWidget):
-
+    """ """
     def __init__(self, parent=0, *args, **kwargs):
         super(DashbordViewWidget, self).__init__(parent=parent,
                                                         *args, **kwargs)
@@ -68,10 +68,10 @@ class DashbordViewWidget(PowerWidget):
         hbox_alert.addWidget(box)
 
         #Combobox widget
-        list_type = [_("Week"), _("Month")]
+        list_type = [_(u"Week"), _(u"Month")]
         self.box_type = QtGui.QComboBox()
         for index in list_type:
-            self.box_type.addItem((u'%(type)s') % {'type': index})
+            self.box_type.addItem((u"%(type)s") % {"type": index})
 
         box_combo = QtGui.QHBoxLayout()
         box_combo.addWidget(self.box_type)
@@ -103,15 +103,15 @@ class BalanceTableWidget(PowerTableWidget):
                         _(u"Value"), _(u"Balance")]
         self.set_data_for()
         self.refresh(True)
-        graph_for_type(_(u"Graphic representation of the balance per day"),\
-                        u"balance")
+        graph_for_type(_(u"balance")
+                        )
 
     def set_data_for(self):
         self.data = [(op.date_op.strftime(_(u'%x %Hh:%Mmn')),\
                       op.type, formatted_number(op.value),\
                       formatted_number(op.balance))
             for op in session.query(Operation)\
-                             .order_by(desc(Operation.date_op)).all()][:5]
+                             .order_by(desc(Operation.date_op)).all()]
 
 
 class ConsumptionTableWidget(PowerTableWidget):
@@ -122,11 +122,10 @@ class ConsumptionTableWidget(PowerTableWidget):
         self.header = [_(u"Date"), _(u"Consumption")]
         self.set_data_for()
         self.refresh(True)
-        graph_for_type(_(u"Graphic representation of Consumption per day"),\
-                        u"consumption")
+        graph_for_type(_(u"consumption"))
 
     def set_data_for(self):
 
         self.data = self.data = [(op[0].strftime(_(u'%x %Hh:%Mmn')),\
                             formatted_number(op[1]))
-            for op in consumption()][:5]
+            for op in consumption()]

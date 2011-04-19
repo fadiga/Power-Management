@@ -73,11 +73,12 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
 
     def add_statement(self):
         ''' add statement '''
-        dic = {0: "balance", 1: "added", 2: "cut", 3: "recovery"}
+        types = {0: "balance", 1: "added", 2: "cut", 3: "recovery"}
+        commit = False
         for data in self.list_data:
             date_op = data[0].text()
             time_op = data[1].text()
-            type_op = dic[data[2].currentIndex()]
+            type_op = types[data[2].currentIndex()]
             value_op = data[3].text()
 
             day, month, year = date_op.split('/')
@@ -105,6 +106,9 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
                                         unicode(value_op), balance)
                 session.add(operation)
                 session.commit()
-        self.value_.clear()
-        raise_success(_(u'Confirmation'), _(u'Registered opération'))
+                commit = True
+        if commit:
+            raise_success(_(u"Confirmation"), _(u"Registered opération"))
+        else:
+            raise_error(_(u"Confirmation"), _(u"There is no valid operation"))
         self.change_main_context(DashbordViewWidget)
