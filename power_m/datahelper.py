@@ -87,15 +87,19 @@ def average_consumption():
     list_consos = []
     for c in consumption():
         list_consos.append(c[1])
-    moy = sum(list_consos)/len(list_consos)
+    if list_consos!= []:
+        moy = sum(list_consos)/len(list_consos)
+    else:
+        moy = 0
     return moy
 
 
 def estimated_duration():
     balance = last_balance()
     avg_conso = average_consumption()
-    num_days = balance/avg_conso
-    return num_days
+    if balance and avg_conso !=0:
+        num_days = balance/avg_conso
+        return num_days
 
 
 def max_consumption():
