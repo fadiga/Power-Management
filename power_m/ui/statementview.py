@@ -45,7 +45,7 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
             #Combobox widget
             self.box_type = QtGui.QComboBox()
             for index in liste_type:
-                self.box_type.addItem((u'%(type)s') % {'type': index})
+                self.box_type.addItem(u'%(type)s' % {'type': index})
 
             self.list_data.append((self.date_, self.time,\
                             self.box_type, self.value_))
@@ -73,7 +73,7 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
 
     def add_statement(self):
         ''' add statement '''
-        types = {0: _("balance"), 1: _("added"), 2: _("cut"), 3: _("recovery")}
+        types = {0: "balance", 1: "added", 2: "cut", 3: "recovery"}
         commit = False
         for data in self.list_data:
             date_op = data[0].text()
@@ -90,17 +90,17 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
             last_b = last_balance()
             if value_op:
                 flag = True
-            if type_op == _("recovery") or type_op == _("cut"):
+            if type_op == "recovery" or type_op == "cut":
                 flag = True
             if flag:
-                if type_op == _("added"):
+                if type_op == "added":
                     if last_b == None:
                         balance = int(value_op)
                     else:
                         balance = int(last_b) + int(value_op)
-                if type_op == _("balance"):
+                if type_op == "balance":
                     balance = unicode(value_op)
-                if type_op == _("recovery") or type_op == _("cut"):
+                if type_op == "recovery" or type_op == "cut":
                     balance = unicode(last_b)
                 operation = Operation(datetime_, unicode(type_op),\
                                         unicode(value_op), balance)

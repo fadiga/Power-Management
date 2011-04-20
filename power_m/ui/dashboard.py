@@ -14,7 +14,7 @@ from common import (PowerWidget, PowerPageTitle, PowerTableWidget,
 
 
 class DashbordViewWidget(PowerWidget):
-    """ """
+    """ Shows the home page  """
 
     def __init__(self, parent=0, *args, **kwargs):
         super(DashbordViewWidget, self).__init__(parent=parent,

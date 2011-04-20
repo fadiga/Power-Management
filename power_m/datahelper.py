@@ -12,7 +12,7 @@ from graph import graphic
 
 
 def tabbox(box1, Box2):
-    ''' adds a box with tab '''
+    """ adds a box with tab """
     tab_widget = QtGui.QTabWidget()
     for heading in [_("Graphe"), _("Table")]:
             pane = TabPane()
@@ -35,9 +35,9 @@ def last_balance():
         pass
 
 
-def last_operation(type_op=''):
-    """ last cou """
-    if type_op != '':
+def last_operation(type_op=""):
+    """ last operation """
+    if type_op != "":
         try:
             last_operation = session.query(Operation).\
                         filter(Operation.type == type_op).\
@@ -57,8 +57,8 @@ def last_operation(type_op=''):
 def duration():
     """ duration """
     try:
-        last_cut = last_operation('cut')
-        last_recovery = last_operation('recovery')
+        last_cut = last_operation("cut")
+        last_recovery = last_operation("recovery")
 
         duration = last_recovery.date_op - last_cut.date_op
         return duration, last_recovery.date_op
@@ -67,7 +67,7 @@ def duration():
 
 
 def consumption():
-    """ Calculation of consumption per day."""
+    """ Calculation of consumption per day. """
     list_consump = []
     data_balance = [(op.balance,\
                     op.date_op,\
@@ -122,15 +122,15 @@ def graph_for_type(type):
     x = []
     y = []
     if type == u"balance":
-        x = [(op.date_op.strftime(_(u' %d/%b')))
+        x = [(op.date_op.strftime(_(u"%d/%b")))
                         for op in session.query(Operation).\
                             order_by(asc(Operation.date_op))\
-                            .filter(Operation.type == 'balance').all()]
+                            .filter(Operation.type == "balance").all()]
         y = [(op.balance) for op in session.query(Operation)\
                             .order_by(asc(Operation.date_op))\
-                            .filter(Operation.type == 'balance').all()]
+                            .filter(Operation.type == "balance").all()]
     if type == u"consumption":
-        x = [(cons[0].strftime(_(u'%d/%b')))
+        x = [(cons[0].strftime(_(u"%d/%b")))
             for cons in consumption()]
         y = [(cons[1])
             for cons in consumption()]
