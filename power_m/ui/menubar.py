@@ -86,4 +86,4 @@ class MenuBar(QtGui.QMenuBar, PowerWidget):
                             u"Tel: (223) 76 33 30 05\n" \
                             u"www.yeleman.com\n" \
                             u"info@yeleman.com\n\n" \
-                            u"Alou Dolo, Ibrahima Fadiga, \n"))
+                            u"Alou Dolo, Ibrahima Fadiga"))

@@ -15,6 +15,7 @@ from common import (PowerWidget, PowerPageTitle, PowerTableWidget,
 
 class DashbordViewWidget(PowerWidget):
     """ """
+
     def __init__(self, parent=0, *args, **kwargs):
         super(DashbordViewWidget, self).__init__(parent=parent,
                                                         *args, **kwargs)
@@ -115,8 +116,7 @@ class BalanceTableWidget(PowerTableWidget):
                         _(u"Value"), _(u"Balance")]
         self.set_data_for()
         self.refresh(True)
-        graph_for_type(_(u"balance")
-                        )
+        graph_for_type(_(u"balance"))
 
     def set_data_for(self):
         graph_for_type(u"balance")
@@ -136,7 +136,6 @@ class ConsumptionTableWidget(PowerTableWidget):
         self.header = [_(u"Date"), _(u"Consumption")]
         self.set_data_for()
         self.refresh(True)
-
 
     def set_data_for(self):
         graph_for_type(u"consumption")

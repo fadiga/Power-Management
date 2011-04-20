@@ -4,6 +4,7 @@
 
 
 class PageBreak(object):
+
     def __init__(self):
         pass
 
@@ -54,6 +55,7 @@ class HLine(object):
 
 
 class Section(Text):
+
     def __init__(self, text):
         Text.__init__(self, text)
 

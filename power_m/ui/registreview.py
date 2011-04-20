@@ -7,7 +7,8 @@ from PyQt4 import QtCore
 
 from common import PowerWidget
 from database import Operation, session
-from prints import build_consumption_report, build_balance_report, build_all_report
+from prints import build_consumption_report, build_balance_report,\
+                                                    build_all_report
 from utils import uopen_file
 
 

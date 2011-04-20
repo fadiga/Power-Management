@@ -43,7 +43,7 @@ class DeleteViewWidget(QtGui.QDialog, PowerWidget):
             for index in xrange(0, len(self.data)):
                 op = self.data[index]
                 sentence = _(u"%(date_op)s - %(type)s - " \
-                             u"%(value)s/%(balance)s " )\
+                             u"%(value)s/%(balance)s ")\
                              % {'date_op': op.date_op, \
                                 'type': op.type, \
                                 'value': op.value, \

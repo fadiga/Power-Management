@@ -10,6 +10,7 @@ class NotRenderedError(Exception):
 
 
 class Generator(object):
+
     def __init__(self, document, filename=None):
         self.user_file = filename is not None
         if filename is not None:

@@ -55,6 +55,7 @@ def build_balance_report(filename=None, format='pdf'):
 
     return gen.get_filename()
 
+
 def build_all_report(filename=None, format='pdf'):
     ''' PDF: list of all records '''
     if not filename:

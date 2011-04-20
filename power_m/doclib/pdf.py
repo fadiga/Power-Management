@@ -56,6 +56,7 @@ class CustomDocTemplate(BaseDocTemplate):
 
 
 class PDFGenerator(Generator):
+
     def _start_document(self):
         self.PAGE_HEIGHT = 21.0 * cm
         self.PAGE_WIDTH = 29.7 * cm
@@ -86,9 +87,9 @@ class PDFGenerator(Generator):
 
         ''' Frame template defining page size, margins, etc '''
         self.tframe = Frame(1.5 * cm, 1.5 * cm,
-                        self.PAGE_HEIGHT - 3 * cm,  self.PAGE_WIDTH - 3 * cm,
-                       showBoundary=0, topPadding=0, bottomPadding=0,
-                       rightPadding=0, leftPadding=0)
+                    self.PAGE_HEIGHT - 3 * cm, self.PAGE_WIDTH - 3 * cm,
+                    showBoundary=0, topPadding=0, bottomPadding=0,
+                    rightPadding=0, leftPadding=0)
 
         self.section_style = copy.copy(self.styles['Normal'])
         self.section_style.fontSize = 18
