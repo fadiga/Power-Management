@@ -2,11 +2,11 @@
 # -*- coding: utf-8 -*-
 # maintainer : Fad
 
-from matplotlib.ticker import FuncFormatter
-from pylab import *
 
 
 def graphic(datay, typey, datax):
+    from matplotlib.ticker import FuncFormatter
+    from pylab import *
     ''' is the graph
        param :
             datay = data y (list)
@@ -24,6 +24,5 @@ def graphic(datay, typey, datax):
 
     if typey == u"balance":
         savefig('graph_banlance.png', dpi=50)
-
     if typey == "consumption":
         savefig('graph_consumption.png', dpi=50)

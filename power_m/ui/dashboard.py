@@ -20,6 +20,7 @@ class DashbordViewWidget(PowerWidget):
         super(DashbordViewWidget, self).__init__(parent=parent,
                                                         *args, **kwargs)
 
+        graph_for_type()
         vbox = QtGui.QVBoxLayout()
         hbox = QtGui.QHBoxLayout()
         box_left = QtGui.QHBoxLayout()
@@ -116,10 +117,8 @@ class BalanceTableWidget(PowerTableWidget):
                         _(u"Value"), _(u"Balance")]
         self.set_data_for()
         self.refresh(True)
-        graph_for_type(_(u"balance"))
 
     def set_data_for(self):
-        graph_for_type(u"balance")
 
         self.data = [(op.date_op.strftime(_(u'%x %Hh:%Mmn')),\
                       op.type, formatted_number(op.value),\
@@ -138,7 +137,6 @@ class ConsumptionTableWidget(PowerTableWidget):
         self.refresh(True)
 
     def set_data_for(self):
-        graph_for_type(u"consumption")
         consumptions = consumption()
         consumptions.reverse()
         self.data = [(op[0].strftime(_(u'%x %Hh:%Mmn')),\
