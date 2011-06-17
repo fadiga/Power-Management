@@ -1,1 +1,20 @@
-text
+
+
+Requirements
+~~~~~~~~~~~~
+
+**PyQT4**
+    ``sudo aptitude install python-qt4``
+
+**SQLAlchemy 0.6.6 with SQLite**
+    ``pip install SQLAlchemy==0.6.6``
+
+    ``pip install pysqlite``
+
+    ``sudo aptitude install sqlite3``
+
+**gettext**
+    ``sudo aptitude install gettext``
+
+**matplotlib**
+   sudo apt-get install python-matplotlib
