@@ -8,7 +8,6 @@ from sqlalchemy import desc, asc
 
 from database import Operation, session
 from ui.common import TabPane
-from graph import graphic
 
 
 def tabbox(box1, Box2):
@@ -59,7 +58,6 @@ def duration():
     try:
         last_cut = last_operation("cut")
         last_recovery = last_operation("recovery")
-
         duration = last_recovery.date_op - last_cut.date_op
         return duration, last_recovery.date_op
     except AttributeError:
@@ -69,11 +67,9 @@ def duration():
 def consumption():
     """ Calculation of consumption per day. """
     list_consump = []
-    data_balance = [(op.balance,\
-                    op.date_op,\
-                    op.type)\
-                            for op in session.query(Operation).\
-                            order_by(asc(Operation.date_op))]
+    data_balance = [(op.balance, op.date_op, op.type)\
+                     for op in session.query(Operation).\
+                     order_by(asc(Operation.date_op))]
 
     for i in range(len(data_balance) -1):
         if data_balance[i + 1][2] == "balance":
@@ -118,21 +114,19 @@ def max_consumption():
         pass
 
 
-def graph_for_type():
-    x = []
-    y = []
-    for type in ["consumption", "balance"]:
-        if type == "balance":
-            x = [(op.date_op.strftime(_(u"%d/%b")))
-                            for op in session.query(Operation).\
-                                order_by(asc(Operation.date_op))\
-                                .filter(Operation.type == "balance").all()]
-            y = [(op.balance) for op in session.query(Operation)\
-                                .order_by(asc(Operation.date_op))\
-                                .filter(Operation.type == "balance").all()]
-        if type == "consumption":
-            x = [(cons[0].strftime(_(u"%d/%b")))
-                for cons in consumption()]
-            y = [(cons[1])
-                for cons in consumption()]
-        graphic(y, type, x)
+def balance_graph():
+    balance_x = [(op.date_op.strftime(_(u"%d/%b")).decode('utf-8'))
+                    for op in session.query(Operation).\
+                        order_by(asc(Operation.date_op))\
+                        .filter(Operation.type == "balance").all()]
+    balance_y = [(op.balance) for op in session.query(Operation)\
+                        .order_by(asc(Operation.date_op))\
+                        .filter(Operation.type == "balance").all()]
+    return balance_x, balance_y
+
+
+def consumption_graph():
+    consumption_x = [(cons[0].strftime(_(u"%d/%b")).decode('utf-8'))
+                     for cons in consumption()]
+    consumption_y = [(cons[1]) for cons in consumption()]
+    return consumption_x, consumption_y

@@ -1,0 +1,53 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base href="{{ base_url }}" />
+</head>
+<body>
+<script type="text/javascript" src="templates/js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="templates/js/highcharts.js"></script>
+<script type="text/javascript">
+var toto;
+var loadchart = function() {
+   toto = new Highcharts.Chart(
+         {
+         chart: {renderTo: 'container',
+                 defaultSeriesType: 'column',
+                 backgroundColor: '#ebebeb'},
+         legend: {},
+         title: {text: null},
+         xAxis: {categories: [{%for value in date %}"{{ value }}",{% endfor %}],
+         labels: {
+            rotation: -45,
+            align: 'right',
+            style: {
+                font: 'normal 13px Verdana, sans-serif'
+            }
+         }
+      },
+         yAxis: {title: {text: null}, },
+         series: [
+            { {% if type == "balance" %} 
+                name: "Solde" {% else %}
+                name: "Consommation" {%endif%}, 
+                data: [{%for value in data %}{{ value }},{% endfor %}]},
+            ],
+         tooltip: {formatter: function() {return ''+ this.series.name;}},
+         plotOptions: {column: 
+                        {animation: false,
+                         enableMouseTracking: false,
+                         dataLabels: {enabled: true,
+                                      color: "7F0000",
+                                      formatter: function(){return '' + this.y.toString().replace('.', ','); }} 
+                                     }
+                       },
+         exporting: {enabled: true},
+         credits: {enabled: false, text: "© YELEMAN.sarl", href: null},
+        });
+   
+};
+$(document).ready(loadchart);
+</script>
+<div id="container" style="width:400px;height:195px;"></div>
+</body>
+</html>

@@ -2,15 +2,25 @@
 # -*- coding: utf-8 -*-
 # maintainer: alou
 
-from PyQt4 import QtGui
+import os
+
 from sqlalchemy import desc
+from PyQt4 import QtGui
+from PyQt4.QtCore import QUrl
+from PyQt4.QtWebKit import QWebView
+from jinja2 import Environment, PackageLoader
+
 from utils import get_temp_filename, formatted_number
 from database import Operation, session
-from datahelper import (tabbox, graph_for_type, consumption, duration,
+from datahelper import (tabbox, consumption, duration,
                       estimated_duration, max_consumption, average_consumption,
-                      last_balance)
+                      last_balance, balance_graph, consumption_graph)
 from common import (PowerWidget, PowerPageTitle, PowerTableWidget,
                                                 PowerBoxTitle)
+
+abs_path = os.path.abspath(__file__)
+ROOT_DIR = os.path.dirname(abs_path)
+BASE_URL = 'file://' + ROOT_DIR
 
 
 class DashbordViewWidget(PowerWidget):
@@ -20,7 +30,6 @@ class DashbordViewWidget(PowerWidget):
         super(DashbordViewWidget, self).__init__(parent=parent,
                                                         *args, **kwargs)
 
-        graph_for_type()
         vbox = QtGui.QVBoxLayout()
         hbox = QtGui.QHBoxLayout()
         box_left = QtGui.QHBoxLayout()
@@ -41,13 +50,13 @@ class DashbordViewWidget(PowerWidget):
                           'date': consuption[1].strftime(u'%x')})
         if duration_cut:
             box.addItem(_(u"The biggest break is %(duration)s (%(date)s).")\
-                                % {'duration': duration_cut[0],\
+                                % {'duration': duration_cut[0],
                                    'date': duration_cut[1].strftime(u"%x")})
         if avg_conso:
-            box.addItem(_(u"The average consumption is %(avg)s FCFA.")\
+            box.addItem(_(u"The average consumption is %(avg)s FCFA.")
                                 % {'avg': formatted_number(avg_conso)})
         if num_days:
-            box.addItem(_(u"The end balance is estimated at %(num)s days.")\
+            box.addItem(_(u"The end balance is estimated at %(num)s days.")
                                 % {'num': num_days})
 
         tablebox_balance = QtGui.QVBoxLayout()
@@ -69,13 +78,19 @@ class DashbordViewWidget(PowerWidget):
         self.table_balance = BalanceTableWidget(parent=self)
         self.table_consumption = ConsumptionTableWidget(parent=self)
 
-        pixmap_balance = QtGui.QPixmap("graph_banlance.png")
-        label_b = QtGui.QLabel()
-        label_b.setPixmap(pixmap_balance)
+        # GRAPH
+        jinja = Environment(loader=PackageLoader('power_m', 'templates'))
+        template = jinja.get_template('chart.html')
+        graph1 = template.render(base_url=BASE_URL, type="balance", data=balance_graph()[1],
+                                 date=balance_graph()[0])
+        graph2 = template.render(base_url=BASE_URL,  type="consuption", data=consumption_graph()[1],
+                                 date=consumption_graph()[0])
+
+        label_b = QWebView()
+        label_b.setHtml(graph1)
         box_left.addWidget(label_b)
-        pixmap_cons = QtGui.QPixmap("graph_consumption.png")
-        label_cons = QtGui.QLabel()
-        label_cons.setPixmap(pixmap_cons)
+        label_cons = QWebView()
+        label_cons.setHtml(graph2)
         box_rigth.addWidget(label_cons)
 
         hbox_alert.addWidget(self.title_alert)
@@ -123,8 +138,8 @@ class BalanceTableWidget(PowerTableWidget):
         self.data = [(op.date_op.strftime(_(u'%x %Hh:%Mmn')),\
                       op.type, formatted_number(op.value),\
                       formatted_number(op.balance))
-            for op in session.query(Operation)\
-                             .order_by(desc(Operation.date_op)).all()]
+                      for op in session.query(Operation)\
+                      .order_by(desc(Operation.date_op)).all()]
 
 
 class ConsumptionTableWidget(PowerTableWidget):
