@@ -10,7 +10,7 @@ from datetime import datetime
 from PyQt4 import QtGui
 
 import database
-from database import Operation, session
+from database import Operation
 from utils import raise_success, raise_error
 
 

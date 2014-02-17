@@ -4,14 +4,13 @@
 
 import os
 
-from sqlalchemy import desc
 from PyQt4 import QtGui
 from PyQt4.QtCore import QUrl
 from PyQt4.QtWebKit import QWebView
 from jinja2 import Environment, PackageLoader
 
 from utils import get_temp_filename, formatted_number
-from database import Operation, session
+from database import Operation
 from datahelper import (tabbox, consumption, duration,
                       estimated_duration, max_consumption, average_consumption,
                       last_balance, balance_graph, consumption_graph)
@@ -27,8 +26,7 @@ class DashbordViewWidget(PowerWidget):
     """ Shows the home page  """
 
     def __init__(self, parent=0, *args, **kwargs):
-        super(DashbordViewWidget, self).__init__(parent=parent,
-                                                        *args, **kwargs)
+        super(DashbordViewWidget, self).__init__(parent=parent, *args, **kwargs)
 
         vbox = QtGui.QVBoxLayout()
         hbox = QtGui.QHBoxLayout()
@@ -63,12 +61,9 @@ class DashbordViewWidget(PowerWidget):
         tablebox_consumption = QtGui.QVBoxLayout()
 
         # On recupere la derniere balance
+        msg = _("Balance:  {} FCFA")
         balance = last_balance()
-        if balance == None:
-            balance = _("Balance:  %(balance)s FCFA") % {"balance": 0}
-        else:
-            balance = _("Balance:  %(balance)s FCFA") % \
-                                        {"balance": formatted_number(balance)}
+        balance = msg.format(0 if not balance else formatted_number(balance))
 
         self.title = PowerPageTitle(balance)
         self.title_alert = PowerPageTitle(_(u"Statistics"))
@@ -135,11 +130,9 @@ class BalanceTableWidget(PowerTableWidget):
 
     def set_data_for(self):
 
-        self.data = [(op.date_op.strftime(_(u'%x %Hh:%Mmn')),\
-                      op.type, formatted_number(op.value),\
-                      formatted_number(op.balance))
-                      for op in session.query(Operation)\
-                      .order_by(desc(Operation.date_op)).all()]
+        self.data = [(op.date_op.strftime(_(u'%x %Hh:%Mmn')), op.type_,
+                     formatted_number(op.value), formatted_number(op.balance))
+                     for op in Operation.select().order_by(('date_op', 'asc'))]
 
 
 class ConsumptionTableWidget(PowerTableWidget):

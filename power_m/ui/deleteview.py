@@ -5,11 +5,9 @@
 from PyQt4 import QtGui
 from PyQt4 import QtCore
 
-from sqlalchemy import desc
-
 from utils import raise_error, raise_success, formatted_number
 from common import PowerWidget
-from database import Operation, session
+from database import Operation
 from dashboard import DashbordViewWidget
 
 
@@ -18,8 +16,7 @@ class DeleteViewWidget(QtGui.QDialog, PowerWidget):
     def __init__(self, parent, *args, **kwargs):
         QtGui.QDialog.__init__(self, parent, *args, **kwargs)
 
-        self.data = session.query(Operation).\
-                    order_by(desc(Operation.date_op)).all()
+        self.data = Operation.select().order_by("date_op")
 
         title = QtGui.QLabel()
         self.setWindowTitle(_(u"Delete an operation"))
@@ -39,13 +36,23 @@ class DeleteViewWidget(QtGui.QDialog, PowerWidget):
             title_hbox.addWidget(title)
 
             #Combobox widget
+            # self.box = QtGui.QComboBox()
+            # for index in xrange(0, self.data.count()):
+            #     op = self.data[index]
+            #     sentence = _(u"%(date_op)s - %(type)s - " \
+            #                  u"%(value)s/%(balance)s ")\
+            #                  % {'date_op': op.date_op, \
+            #                     'type': op.type, \
+            #                     'value': op.value, \
+            #                     'balance': formatted_number(op.balance)}
+            #     self.box.addItem(sentence, QtCore.QVariant(op.id))
             self.box = QtGui.QComboBox()
-            for index in xrange(0, len(self.data)):
-                op = self.data[index]
+            for index in self.data:
+                op = index
                 sentence = _(u"%(date_op)s - %(type)s - " \
                              u"%(value)s/%(balance)s ")\
                              % {'date_op': op.date_op, \
-                                'type': op.type, \
+                                'type': op.type_, \
                                 'value': op.value, \
                                 'balance': formatted_number(op.balance)}
                 self.box.addItem(sentence, QtCore.QVariant(op.id))
@@ -77,8 +84,7 @@ class DeleteViewWidget(QtGui.QDialog, PowerWidget):
 
     def delete(self):
         op = self.data[self.box.currentIndex()]
-        session.delete(op)
-        session.commit()
+        op.delete_instance()
         self.change_main_context(DashbordViewWidget)
         self.box.removeItem(self.box.currentIndex())
         if len(self.data) == 1:

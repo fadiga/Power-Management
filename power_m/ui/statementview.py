@@ -7,7 +7,7 @@ from datetime import datetime
 
 from PyQt4 import QtGui, QtCore
 
-from database import Operation, session
+from database import Operation
 from dashboard import DashbordViewWidget
 from common import PowerWidget, PowerPageTitle
 from datahelper import last_balance
@@ -47,8 +47,8 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
             for index in liste_type:
                 self.box_type.addItem(u'%(type)s' % {'type': index})
 
-            self.list_data.append((self.date_, self.time,\
-                            self.box_type, self.value_))
+            self.list_data.append((self.date_, self.time,
+                                   self.box_type, self.value_))
 
             editbox = QtGui.QHBoxLayout()
             editbox.addWidget(self.date_)
@@ -83,9 +83,8 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
 
             day, month, year = date_op.split('/')
             hour, minute = time_op.split(':')
-            datetime_ = datetime(int(year), int(month),\
-                                    int(day), int(hour),\
-                                            int(minute))
+            datetime_ = datetime(int(year), int(month),
+                                 int(day), int(hour), int(minute))
             flag = False
             last_b = last_balance()
             if value_op:
@@ -102,13 +101,12 @@ class AddstatementViewWidget(QtGui.QDialog, PowerWidget):
                     balance = unicode(value_op)
                 if type_op == "recovery" or type_op == "cut":
                     balance = unicode(last_b)
-                operation = Operation(datetime_, unicode(type_op),\
-                                        unicode(value_op), balance)
-                session.add(operation)
-                session.commit()
-                commit = True
-        if commit:
-            raise_success(_(u"Confirmation"), _(u"Registered opération"))
-        else:
-            raise_error(_(u"Confirmation"), _(u"There is no valid operation"))
+
+                try:
+                    operation = Operation.create(date_op=datetime_, type_=unicode(type_op),
+                                      value=unicode(value_op), balance=balance)
+                    raise_success(_(u"Confirmation"), _(u"Registered opération"))
+                except:
+                    raise
+                    raise_error(_(u"Confirmation"), _(u"There is no valid operation"))
         self.change_main_context(DashbordViewWidget)

@@ -10,8 +10,12 @@ from PyQt4 import QtCore, QtGui
 import gettext_windows
 from ui.mainwindow import MainWindows
 
+from database import setup
+
 
 def main():
+
+    setup()
     gettext_windows.setup_env()
 
     locale.setlocale(locale.LC_ALL, '')

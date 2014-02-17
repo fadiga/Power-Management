@@ -2,9 +2,7 @@
 # encoding=utf-8
 # maintainer: alou
 
-from sqlalchemy import desc
-
-from database import Operation, session
+from database import Operation
 from doclib import Document, Text, Table
 from doclib.pdf import PDFGenerator
 from utils import get_temp_filename, formatted_number
@@ -36,10 +34,9 @@ def build_balance_report(filename=None, format='pdf'):
     table.set_alignment(Table.ALIGN_RIGHT, column=2)
     table.set_alignment(Table.ALIGN_RIGHT, column=3)
 
-    operations = [(op.date_op, op.type, op.value, op.balance) \
-                    for op in session.query(Operation) \
-                    .filter(Operation.type == "balance")
-                    .order_by(desc(Operation.date_op)).all()]
+    operations = [(op.date_op, op.type_, op.value, op.balance) \
+                    for op in Operation.select().order_by(("date_op"))
+                    .filter(type_="balance")]
 
     for operation in operations:
         table.add_row([
@@ -81,9 +78,8 @@ def build_all_report(filename=None, format='pdf'):
     table.set_alignment(Table.ALIGN_RIGHT, column=2)
     table.set_alignment(Table.ALIGN_RIGHT, column=3)
 
-    operations = [(op.date_op, op.type, op.value, op.balance) \
-                    for op in session.query(Operation) \
-                    .order_by(desc(Operation.date_op)).all()]
+    operations = [(op.date_op, op.type_, op.value, op.balance) \
+                    for op in Operation.select().order_by(("date_op", "desc"))]
 
     for operation in operations:
         table.add_row([
